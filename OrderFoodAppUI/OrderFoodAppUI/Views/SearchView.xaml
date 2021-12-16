@@ -34,9 +34,27 @@
                     <Image Source="cart.png" Grid.Column="3" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start"/>
                 </Grid>
                 <Frame HasShadow="True" IsClippedToBounds="True" Grid.Row="1" Margin="0,15,0,15" HeightRequest="60" CornerRadius="30" Padding="0">
-                    <controls:CustomEntry Placeholder="Search" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="search" ImageAlignment="Right" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
+                    <controls:CustomEntry x:Name="SearchRes" Placeholder="Search" BorderColor="White" 
+                                          BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                          FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" 
+                                          Image="search" ImageAlignment="Right" ImageWidth="15" ImageHeight="15" 
+                                          CornerRadius="30" IsCurvedCornersEnabled="True"
+                                          TextChanged="SearchRes_TextChanged"
+                                          />
                 </Frame>
-                <ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" Padding="0" Orientation="Horizontal" Margin="0,15,0,15" HeightRequest="60">
+                <Frame>
+                <ListView x:Name="ListRes">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Label Text="{Binding TenNH}"></Label>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                    </ListView>
+                </Frame>
+
+                --><!--<ScrollView Grid.Row="2" VerticalScrollBarVisibility="Never" HorizontalScrollBarVisibility="Never" Padding="0" Orientation="Horizontal" Margin="0,15,0,15" HeightRequest="60">
                     <StackLayout Orientation="Horizontal" HeightRequest="60">
                         <Frame HeightRequest="60" CornerRadius="30" HasShadow="True" Margin="0,0,15,0" IsClippedToBounds="True" BackgroundColor="{StaticResource DarkAccentColor}" HorizontalOptions="Start" Padding="0,0,5,0">
                             <StackLayout Orientation="Horizontal" HeightRequest="60" >
@@ -89,8 +107,8 @@
                             </StackLayout>
                         </Frame>
                     </StackLayout>
-                </ScrollView>
-                <Label Grid.Row="3" Margin="0,15,0,15" Style="{StaticResource LabelWellcomeStyle}" Text="240 Result"/>
+                </ScrollView>-->
+                <!--<Label Grid.Row="3" Margin="0,15,0,15" Style="{StaticResource LabelWellcomeStyle}" Text="240 Result"/>
                 <ScrollView Grid.Row="4">
                     <StackLayout>
                         <Grid ColumnSpacing="15"  Margin="0,15,0,0"  VerticalOptions="Start">
@@ -211,7 +229,7 @@
                             </Frame>
                         </Grid>
                     </StackLayout>
-                </ScrollView>
+                </ScrollView>--><!--
             </Grid>
             <Grid  Margin="20,0,20,0" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" BackgroundColor="{StaticResource BgColor}" x:Name="grFilter" IsVisible="False">
                 <Grid.RowDefinitions>
@@ -319,6 +337,7 @@
                     </StackLayout>
                 </StackLayout>
             </Grid>
-        </AbsoluteLayout>
+        </AbsoluteLayout>-->
+ 
     </ContentPage.Content>
 </ContentPage>

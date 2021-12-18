@@ -32,11 +32,11 @@
                                             <ColumnDefinition Width="2*"></ColumnDefinition>
                                         </Grid.ColumnDefinitions>
                                         <Frame Padding="0" HasShadow="False" CornerRadius="5" IsClippedToBounds="True" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="5,0,0,0" >
-                                            <Image Source="{Binding ImageNH}" Aspect="AspectFill" />
+                                            <Image Source="{Binding IMG}" Aspect="AspectFill" />
                                         </Frame>
 
-                                        <Label Margin="5,0,5,0" Text="{Binding TenNH}" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0"/>
-                                        <Label Margin="5,0,5,0" Text="{Binding DiaDiem}" Style="{StaticResource LabelTitleStyle}" FontSize="11" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
+                                        <Label Margin="5,0,5,0" Text="{Binding TEN}" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0"/>
+                                        <Label Margin="5,0,5,0" Text="{Binding DIADIEM}" Style="{StaticResource LabelTitleStyle}" FontSize="11" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
                                         <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" BackgroundColor="{StaticResource BgColor}"/>-->
                                         <StackLayout Margin="5,0,5,0" Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
                                             <Label Text="30.000 đ" VerticalTextAlignment="Center" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Start"/>

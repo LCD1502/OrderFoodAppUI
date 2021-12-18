@@ -19,13 +19,13 @@ namespace OrderFoodAppUI.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            listResInit();
+            ListResInit();
         }
         List<Restaurant> restaurants = new List<Restaurant>();
-        async void listResInit()
+        async void ListResInit()
         {
             HttpClient httpClient = new HttpClient();
-            var ResList = await httpClient.GetStringAsync("http://192.168.1.7/AppFoodApi/api/AppFoodController/GetNhaHang");
+            var ResList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetNhaHang");
             var RestListCV = JsonConvert.DeserializeObject<List<Restaurant>>(ResList);
             restaurants = RestListCV;
             ListRes.ItemsSource = RestListCV;
@@ -79,7 +79,7 @@ namespace OrderFoodAppUI.Views
 
         private void SearchRes_TextChanged(object sender, TextChangedEventArgs e)
         {
-            var result = restaurants.Where(c => RemoveUnicode(c.TenNH.ToLower()).Contains(RemoveUnicode(SearchRes.Text.ToLower())) || RemoveUnicode(c.DiaDiem.ToLower()).Contains(RemoveUnicode(SearchRes.Text.ToLower())));
+            var result = restaurants.Where(c => RemoveUnicode(c.TEN.ToLower()).Contains(RemoveUnicode(SearchRes.Text.ToLower())) || RemoveUnicode(c.DIADIEM.ToLower()).Contains(RemoveUnicode(SearchRes.Text.ToLower())) || RemoveUnicode(c.LOAI.ToLower()).Contains(RemoveUnicode(SearchRes.Text.ToLower())));
             if (result.Count() == 0)
             {
                 NotFound.IsVisible = true;

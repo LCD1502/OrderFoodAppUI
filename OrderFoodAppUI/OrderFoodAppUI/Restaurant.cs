@@ -6,9 +6,12 @@ namespace OrderFoodAppUI
 {
     public class Restaurant
     {
-        public int MaNH { get; set; }
-        public string TenNH { get; set; }
-        public string ImageNH { get; set; }
-        public string DiaDiem { get; set; }
+        public string MANH { get; set; }
+        public string TEN { get; set; }
+        public string IMG { get; set; }
+        public string DIADIEM { get; set; }
+        public string QUAN{ get; set; }
+        public string THANHPHO { get; set; }
+        public string LOAI { get; set; }
     }
 }

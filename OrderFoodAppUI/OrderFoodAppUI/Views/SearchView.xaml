@@ -12,10 +12,17 @@
             <Frame Padding="2" CornerRadius="100" Margin="10,10,10,5">
                 <SearchBar  x:Name="SearchRes" Placeholder="Tìm kiếm"  Margin="5,0,15,0" TextChanged="SearchRes_TextChanged" Style="{StaticResource LabelTitleStyle}"></SearchBar>
             </Frame>
-            <Label  Text="Danh sách nhà hàng" HorizontalOptions="Center"  Margin="10,0,10,5" Style="{StaticResource LabelTitleStyle}"></Label>
+            <StackLayout Orientation="Horizontal">
+            <Label  Text="Danh sách nhà hàng" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  Margin="10,0,10,5" Style="{StaticResource LabelTitleStyle}"></Label>
+            <Image Source="filter.png" Grid.Column="1" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,5,0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Image.GestureRecognizers>
+            </Image>
+            </StackLayout>
             <Label x:Name="NotFound" Text="Không tìm thấy nhà hàng" HorizontalOptions="Center" TextColor="{StaticResource TextColor}" IsVisible="false" Margin="10" Style="{StaticResource LabelTitleStyle}"></Label>
 
-            <ListView x:Name="ListRes" IsVisible="true" Margin="5,0,5,0" RowHeight="50" HasUnevenRows="True">
+            <ListView x:Name="ListRes" IsVisible="true" Margin="5,0,5,0" RowHeight="50" HasUnevenRows="True" ItemSelected="ListRes_ItemSelected">
                 <ListView.ItemTemplate >
                     <DataTemplate >
                         <ViewCell >

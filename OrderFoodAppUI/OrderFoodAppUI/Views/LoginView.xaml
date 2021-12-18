@@ -8,6 +8,7 @@
              xmlns:controls="clr-namespace:OrderFoodAppUI.Controls"
              x:Class="OrderFoodAppUI.Views.LoginView">
     <ContentPage.Content>
+        <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -45,7 +46,8 @@
             <Frame HasShadow="True" Grid.Row="5" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                 <Button Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White"  BackgroundColor="{StaticResource AccentColor}"/>
             </Frame>
-            <Label Style="{StaticResource LabelTitleStyle}" Grid.Row="6" VerticalTextAlignment="Center" TextColor="Gray" HorizontalTextAlignment="Center" Text="Forgot your password!"/>
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Row="6" VerticalTextAlignment="Center" TextColor="Gray" HorizontalTextAlignment="Center" Text="Forgot your password!" Margin="0,15,0,20"/>
         </Grid>
+            </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -36,14 +36,14 @@
                     <Frame Grid.Column="0" Grid.Row="0" HeightRequest="50" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False" BackgroundColor="{StaticResource AccentColor}">
-                                <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                                    <Image Source="place" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"/>
+                                <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
+                                    <ImageButton x:Name="GetLct" Clicked="GetLct_Clicked"  Source="place" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"/>
                                 </StackLayout>
                             </Frame>
-                            <Label Text="333, BD, VN" VerticalTextAlignment="Center" Style="{StaticResource LabelDefaultStyle}"/>
+                            <Label x:Name="LabelLocation" VerticalTextAlignment="Center" Style="{StaticResource LabelDefaultStyle}"/>
                         </StackLayout>
                     </Frame>
-                    <Frame Grid.Column="1" Grid.Row="0" HeightRequest="50" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                    <!--<Frame Grid.Column="1" Grid.Row="0" HeightRequest="50" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False" BackgroundColor="{StaticResource AccentColor}">
                                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
@@ -52,9 +52,9 @@
                             </Frame>
                             <Label Text="333, BD, VN" VerticalTextAlignment="Center" Style="{StaticResource LabelDefaultStyle}"/>
                         </StackLayout>
-                    </Frame>
+                    </Frame>-->
                 </Grid>
-                <Label Margin="20,20,20,0" Style="{StaticResource LabelWellcomeStyle}" Text="Doanh Mục"/>
+                <Label Margin="20,20,20,0" Style="{StaticResource LabelWellcomeStyle}" Text="Danh Mục"/>
                 <Grid Margin="20,20,20,0" ColumnSpacing="20">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>

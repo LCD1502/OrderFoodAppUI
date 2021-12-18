@@ -93,10 +93,21 @@ namespace OrderFoodAppUI.Views
             }
 
         }
-
+       
         private void BtnPlus_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ListRes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            Restaurant slRes = (Restaurant)ListRes.SelectedItem;
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(slRes), true);
         }
     }
 }

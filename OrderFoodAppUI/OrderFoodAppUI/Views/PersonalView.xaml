@@ -6,14 +6,30 @@
              mc:Ignorable="d"
              x:Class="OrderFoodAppUI.Views.PersonalView">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Login!" BackgroundColor="{StaticResource MainColor}" TextColor="Black"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" >
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Label.GestureRecognizers>
-            </Label>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Label Style="{StaticResource LabelTitleStyle}" 
+                       VerticalTextAlignment="Center" 
+                       HorizontalTextAlignment="Center" Text="Shopping Cart" Margin="10"/>
+                <Frame>
+                    <Image Source="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" ></Image>
+                </Frame>
+                <Frame x:Name="Person">
+                    <Label Text="Khách" Style="{StaticResource LabelTitleStyle}"></Label>
+                </Frame>
+                <Frame x:Name="Setting">
+                    <Label Text="Cài đặt" Style="{StaticResource LabelTitleStyle}"></Label>
+                </Frame>
+                
+                <Label Text="Login!" BackgroundColor="{StaticResource MainColor}" TextColor="Black"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="CenterAndExpand" Padding="20">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                    </Label.GestureRecognizers>
+                </Label>
+               
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

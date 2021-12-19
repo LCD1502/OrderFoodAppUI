@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -17,7 +19,7 @@ namespace OrderFoodAppUI.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
-
+        
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);

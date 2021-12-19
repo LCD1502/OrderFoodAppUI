@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,33 +18,51 @@ namespace OrderFoodAppUI.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+            ListCartInit();
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        async void ListCartInit()
         {
-            grFilter.TranslationX = 200;
-            grFilter.Opacity = 0;
-            grFilter.IsVisible = true;
+            HttpClient httpClient = new HttpClient();
+            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
 
-            grFilter.FadeTo(1, 400);
-            grFilter.TranslateTo(0, 0, 700, Easing.SinInOut);
+            LstCart.ItemsSource = CartListCV;
         }
+        //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        //{
+        //    grFilter.TranslationX = 200;
+        //    grFilter.Opacity = 0;
+        //    grFilter.IsVisible = true;
 
-        private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
-        {
-            grFilter.TranslationX = 0;
-            grFilter.Opacity = 1;
+        //    grFilter.FadeTo(1, 400);
+        //    grFilter.TranslateTo(0, 0, 700, Easing.SinInOut);
+        //}
 
-            await grFilter.TranslateTo(400, 0, 900, Easing.SinInOut);
-            await grFilter.FadeTo(0, 100);
+        //private async void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        //{
+        //    grFilter.TranslationX = 0;
+        //    grFilter.Opacity = 1;
+
+        //    await grFilter.TranslateTo(400, 0, 900, Easing.SinInOut);
+        //    await grFilter.FadeTo(0, 100);
 
 
-            grFilter.IsVisible = false;
-        }
+        //    grFilter.IsVisible = false;
+        //}
 
         private void TapGestureRecognizer_Tapped_2(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new ProducDetail(), true);
+        }
+
+        private async void Stepper_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            HttpClient httpClient = new HttpClient();
+            await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh="+1);
+            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            LstCart.ItemsSource = CartListCV;
         }
     }
 }

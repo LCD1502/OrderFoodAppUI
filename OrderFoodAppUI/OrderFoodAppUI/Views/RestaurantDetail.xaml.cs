@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -23,16 +25,28 @@ namespace OrderFoodAppUI.Views
             InforInit(restaurant);
             Title = restaurant.TEN;
         }
-        void InforInit(Restaurant restaurant)
+        async void InforInit(Restaurant restaurant)
         {
             ResName.Text = restaurant.TEN;
             ResImg.Source = restaurant.IMG;
             ResPlace.Text = restaurant.DIADIEM;
+            string maNH = restaurant.MANH;
+            HttpClient httpClient = new HttpClient();
+            var FoodList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetMonAnNhaHang?manh="+ maNH);
+            var FoodListCV = JsonConvert.DeserializeObject<List<Food>>(FoodList);
+            FoodLst.ItemsSource = FoodListCV;
+            //restaurants = RestListCV;
+            //ListRes.ItemsSource = RestListCV;
         }
 
-        private void BtnPlus_Clicked(object sender, EventArgs e)
+        private async void BtnPlus_Clicked(object sender, EventArgs e)
         {
-
+            ImageButton button = (ImageButton)sender;
+            int MAMA = int.Parse(button.CommandParameter.ToString());
+            HttpClient httpClient = new HttpClient();
+            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand=1&mama="+MAMA.ToString());
+            //var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            
         }
     }
 }

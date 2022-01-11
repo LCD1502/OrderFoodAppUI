@@ -10,7 +10,7 @@ namespace OrderFoodAppUI
         public App()
         {
             InitializeComponent();
-            NavigationPage navigation = new NavigationPage(new MainView());
+            NavigationPage navigation = new NavigationPage(new LoginView());
             MainPage = navigation;
         }
 

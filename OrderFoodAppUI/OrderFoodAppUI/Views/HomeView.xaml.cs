@@ -12,10 +12,18 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomeView : ContentPage
     {
+        User HomeUser;
         public HomeView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+        }
+
+        public HomeView(User user)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
+            HomeUser = user;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

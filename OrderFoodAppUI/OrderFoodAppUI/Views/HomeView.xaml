@@ -11,16 +11,16 @@
         <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
             <StackLayout>
                 <AbsoluteLayout HeightRequest="50" Margin="20,0,20,0" HorizontalOptions="FillAndExpand">
-                    <Label AbsoluteLayout.LayoutBounds="0,0,1,1" Style="{StaticResource LabelTitleStyle}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" AbsoluteLayout.LayoutFlags="All" Text="Les's Start"/>
-                    <Image Source="cart.png" AbsoluteLayout.LayoutBounds="1,0.5,30,30" AbsoluteLayout.LayoutFlags="YProportional,XProportional">
+                    <Label AbsoluteLayout.LayoutBounds="0,0,1,1" Style="{StaticResource LabelTitleStyle}" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" AbsoluteLayout.LayoutFlags="All" Text="UIT APP"/>
+                    <!--<Image Source="cart.png" AbsoluteLayout.LayoutBounds="1,0.5,30,30" AbsoluteLayout.LayoutFlags="YProportional,XProportional">
                         <Image.GestureRecognizers>
                             <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_1"/>
                         </Image.GestureRecognizers>
-                    </Image>
+                    </Image>-->
                 </AbsoluteLayout>
                 <StackLayout Margin="20,0,20,0">
-                    <Label Text="Hi Tung!" Style="{StaticResource LabelWellcomeStyle}"/>
-                    <Label Text="what are you looking for?" Style="{StaticResource LabelWellcomeStyle}"/>
+                    <Label Text="Xin chào quý khách" Style="{StaticResource LabelWellcomeStyle}"/>
+                    <Label Text="Bạn muốn ăn gì hôm nay ?" Style="{StaticResource LabelWellcomeStyle}"/>
                 </StackLayout>
                 <Frame HasShadow="True" IsClippedToBounds="True" Margin="20,10,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                     <controls:CustomEntry Placeholder="Search" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="search" ImageAlignment="Right" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>

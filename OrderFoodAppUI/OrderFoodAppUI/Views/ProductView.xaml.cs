@@ -29,6 +29,7 @@ namespace OrderFoodAppUI.Views
 
             LstCart.ItemsSource = CartListCV;
         }
+
         //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         //{
         //    grFilter.TranslationX = 200;

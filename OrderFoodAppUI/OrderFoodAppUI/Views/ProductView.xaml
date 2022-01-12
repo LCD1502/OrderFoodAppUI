@@ -28,7 +28,6 @@
                                                     <ColumnDefinition Width="*"></ColumnDefinition>
                                                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
                                                     <ColumnDefinition Width="0.5*"></ColumnDefinition>
-                                                    
                                                 </Grid.ColumnDefinitions>
                                                 <Frame Padding="0" HasShadow="False" CornerRadius="5" IsClippedToBounds="True" Grid.Column="0" Grid.Row="0" Grid.RowSpan="3" Margin="5,0,0,0" >
                                                     <Image Source="{Binding IMG}" Aspect="AspectFill" />
@@ -46,28 +45,44 @@
                                                 <Button Text="-" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"></Button>
                                                 <Button Text="+" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center"></Button>
                                                 <StackLayout Margin="5,0,5,0" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="End">
-                                                <Label Text="{Binding TONGGIA}" VerticalOptions="Center" FontAttributes="Bold"  FontSize="20" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="EndAndExpand"/>
+                                                    <Label Text="{Binding TONGGIA}" VerticalOptions="Center" FontAttributes="Bold"  FontSize="20" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="EndAndExpand"/>
                                                     <Label Text="VND" VerticalOptions="Center" FontAttributes="Bold"  FontSize="15" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="StartAndExpand"/>
                                                 </StackLayout>
-                                                
-                                                
                                             </Grid>
-
                                         </StackLayout>
                                     </Frame>
-                                    <!--<Stepper Maximum="360" Value="{Binding SOLUONG}"
-                                                Increment="1"                                                 
-                                                HorizontalOptions="End"
-                                                ValueChanged="Stepper_ValueChanged"
-                                                />-->
-                                    
-                                    
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-                <Button Text="Thanh toán" x:Name="btnThanhToan" Clicked="btnThanhToan_Clicked"></Button>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="*"></RowDefinition>
+                        <RowDefinition Height="2*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Tiền hàng: " Grid.Column="0" Grid.Row="0" Style="{StaticResource LabelTitleStyle}" FontSize="18" Margin="10,0,0,0"></Label>
+                    <StackLayout Grid.Column="1" Grid.Row="0" Orientation="Horizontal" HorizontalOptions="End" >
+                        <Label x:Name="Money" Text="1000" FontSize="18" Style="{StaticResource LabelTitleStyle}"></Label>
+                        <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}" FontSize="15" Margin="0,0,10,0"></Label>
+                    </StackLayout>
+                    <Label Text="Phí ship:" Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelTitleStyle}" FontSize="18" Margin="10,0,0,0"></Label>
+                    <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="End" >
+                        <Label x:Name="w" Text="1000" FontSize="18" Style="{StaticResource LabelTitleStyle}"></Label>
+                        <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}" FontSize="15" Margin="0,0,10,0"></Label>
+                    </StackLayout>
+                    <Label Text="Tổng tiền :" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelTitleStyle}" FontSize="25" FontAttributes="Bold" Margin="10,0,0,0"></Label>
+                    <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalOptions="End" >
+                        <Label x:Name="ww" Text="1000"  Style="{StaticResource LabelTitleStyle}"></Label>
+                        <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}"  Margin="0,0,10,0"></Label>
+                    </StackLayout>
+                </Grid>
+                <Button Text="Đặt hàng" CornerRadius="10" x:Name="btnThanhToan" Clicked="btnThanhToan_Clicked" Margin="0,0,0,20" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center"></Button>
             </StackLayout>
         </ScrollView>
         <!--<AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

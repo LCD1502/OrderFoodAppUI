@@ -80,7 +80,8 @@ namespace OrderFoodAppUI.Views
 
         private void btnThanhToan_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Bill());
+            App.Current.MainPage.Navigation.PushAsync(new Bill(), true);
+            //Navigation.PushAsync(new Bill());
         }
     }
 }

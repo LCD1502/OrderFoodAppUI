@@ -31,11 +31,15 @@ namespace OrderFoodAppUI.Views
 
         async void ListCartInit( User user)
         {
-            HttpClient httpClient = new HttpClient();
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand="+user.MAND.ToString());
-            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            if(user!=null)
+            {
+                HttpClient httpClient = new HttpClient();
+                var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=" + user.MAND.ToString());
+                var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
 
-            LstCart.ItemsSource = CartListCV;
+                LstCart.ItemsSource = CartListCV;
+            }    
+            
         }
 
         //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -69,9 +73,9 @@ namespace OrderFoodAppUI.Views
         {
             HttpClient httpClient = new HttpClient();
             await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh="+1);
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
-            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
-            LstCart.ItemsSource = CartListCV;
+           // var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+           // var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            //LstCart.ItemsSource = CartListCV;
         }
 
         private void btnThanhToan_Clicked(object sender, EventArgs e)

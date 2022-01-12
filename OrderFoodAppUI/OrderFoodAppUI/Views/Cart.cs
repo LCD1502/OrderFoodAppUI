@@ -15,5 +15,6 @@ namespace OrderFoodAppUI.Views
         public string IMG { get; set; }
         public string TEN { get; set; }
         public int MANH { get; set; }
+        public string TENNH { get; set; }
     }
 }

@@ -14,12 +14,14 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductView : ContentPage
     {
+        Cart cart;
         public ProductView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ListCartInit();
         }
+       
 
         async void ListCartInit()
         {
@@ -63,7 +65,14 @@ namespace OrderFoodAppUI.Views
             await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh="+1);
             var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
             var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+
+            cart = CartListCV
             LstCart.ItemsSource = CartListCV;
+        }
+
+        private void btnThanhToan_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Bill());
         }
     }
 }

@@ -48,7 +48,7 @@ namespace OrderFoodAppUI.Views
             }
             catch (Exception)
             {
-                await DisplayAlert("error", "somwthing wrong", "try again");
+                await DisplayAlert("Error !!!", "Something's wrong", "Try again!");
             }
         }
     }

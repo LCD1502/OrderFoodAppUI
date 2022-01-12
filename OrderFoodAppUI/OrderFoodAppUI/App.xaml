@@ -17,9 +17,9 @@
                         Android="UTMAvoBold.ttf#UTM Avo"/>
             <Color x:Key="TextColor">#323131</Color>
             <Color x:Key="BgColor">#f7f7f7</Color>
-            <Color x:Key="AccentColor">#90bc1b</Color>
-            <Color x:Key="DarkAccentColor">#7ea710</Color>
-            <Color x:Key="MainColor">#fc6353</Color>
+            <Color x:Key="AccentColor">#FFA6FB</Color>
+            <Color x:Key="DarkAccentColor">#FF8EFA</Color>
+            <Color x:Key="MainColor">#51CBFF</Color>
             <Style TargetType="Label" x:Key="LabelDefaultStyle">
                 <Setter Property="FontFamily" Value="{StaticResource Avo}"/>
                 <Setter Property="FontSize" Value="15"/>

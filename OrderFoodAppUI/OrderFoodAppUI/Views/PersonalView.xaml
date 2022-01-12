@@ -20,6 +20,9 @@
                 <Frame x:Name="Setting">
                     <Label Text="Cài đặt" Style="{StaticResource LabelTitleStyle}"></Label>
                 </Frame>
+                <Frame x:Name="History">
+                    <Button x:Name="btnHistory" Text="Lịch sử" Style="{StaticResource LabelTitleStyle}" Clicked="btnHistory_Clicked"></Button>
+                </Frame>
                 
                 <Label Text="Login!" BackgroundColor="{StaticResource MainColor}" TextColor="Black"
                     VerticalOptions="Center" 

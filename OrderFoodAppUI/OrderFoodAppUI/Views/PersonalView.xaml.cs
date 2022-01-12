@@ -32,5 +32,10 @@ namespace OrderFoodAppUI.Views
         {
             App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
         }
+
+        private void btnHistory_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new HistoryView());
+        }
     }
 }

@@ -14,17 +14,25 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ProductView : ContentPage
     {
+        User ProUser;
         public ProductView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            ListCartInit();
+            //ListCartInit();
+        }
+        public ProductView(User user)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
+            ProUser = user;
+            ListCartInit(ProUser);
         }
 
-        async void ListCartInit()
+        async void ListCartInit( User user)
         {
             HttpClient httpClient = new HttpClient();
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand="+user.MAND.ToString());
             var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
 
             LstCart.ItemsSource = CartListCV;

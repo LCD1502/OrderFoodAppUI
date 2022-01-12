@@ -6,9 +6,9 @@
              mc:Ignorable="d"
             xmlns:views="clr-namespace:OrderFoodAppUI.Views"
              x:Class="OrderFoodAppUI.Views.MainView">
-  <!--Pages can be added as references or inline-->
-    <views:HomeView IconImageSource="home"/>
+    <!--Pages can be added as references or inline-->
+    <!--<views:HomeView   IconImageSource="home" />
     <views:SearchView IconImageSource="search"/>
     <views:ProductView IconImageSource="list"/>
-    <views:PersonalView IconImageSource="user"/>
+    <views:PersonalView IconImageSource="user"/>-->
 </TabbedPage>

@@ -14,16 +14,18 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RestaurantDetail : ContentPage
     {
+        User RestaurantUser;
         public RestaurantDetail()
         {
             InitializeComponent();
         }
        
-        public RestaurantDetail(Restaurant restaurant)
+        public RestaurantDetail(Restaurant restaurant, User user)
         {
             InitializeComponent();
             InforInit(restaurant);
             Title = restaurant.TEN;
+            RestaurantUser = user;
         }
         async void InforInit(Restaurant restaurant)
         {
@@ -44,7 +46,7 @@ namespace OrderFoodAppUI.Views
             ImageButton button = (ImageButton)sender;
             int MAMA = int.Parse(button.CommandParameter.ToString());
             HttpClient httpClient = new HttpClient();
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand=1&mama="+MAMA.ToString());
+            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand="+RestaurantUser.MAND.ToString()+"&mama="+MAMA.ToString());
             //var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
             
         }

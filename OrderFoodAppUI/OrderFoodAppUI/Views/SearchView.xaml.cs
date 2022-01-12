@@ -15,12 +15,21 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchView : ContentPage
     {
+        User SearchUser;
         public SearchView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ListResInit();
         }
+        public SearchView(User user)
+        {
+            NavigationPage.SetHasNavigationBar(this, false);
+            InitializeComponent();
+            ListResInit();
+            SearchUser = user;
+        }
+
         List<Restaurant> restaurants = new List<Restaurant>();
         async void ListResInit()
         {
@@ -107,7 +116,7 @@ namespace OrderFoodAppUI.Views
         private void ListRes_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
             Restaurant slRes = (Restaurant)ListRes.SelectedItem;
-            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(slRes), true);
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(slRes,SearchUser), true);
         }
     }
 }

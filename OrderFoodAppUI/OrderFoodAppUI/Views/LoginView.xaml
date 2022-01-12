@@ -35,13 +35,13 @@
             </Grid>
             <Image Source="logo.png"  Margin="20,20,20,0" Aspect="AspectFit" WidthRequest="200" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"/>
             <Frame HasShadow="True" Grid.Row="2" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <controls:CustomEntry Placeholder="Account/ Email" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="mail" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
+                <controls:CustomEntry x:Name="Username" Placeholder="Account/ Email" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="mail" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="3" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <controls:CustomEntry Placeholder="Password" BorderColor="White" BackgroundColor="White" IsPassword="True" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="lock" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
+                <controls:CustomEntry x:Name="Pass" Placeholder="Password" BorderColor="White" BackgroundColor="White" IsPassword="True" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="lock" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="4" IsClippedToBounds="True" Margin="20,60,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <Button Text="Login" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White" BackgroundColor="{StaticResource MainColor}"/>
+                <Button x:Name="CmdLogin" Text="Login" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White" BackgroundColor="{StaticResource MainColor}" Clicked="CmdLogin_Clicked"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="5" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                 <Button Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White"  BackgroundColor="{StaticResource AccentColor}"/>

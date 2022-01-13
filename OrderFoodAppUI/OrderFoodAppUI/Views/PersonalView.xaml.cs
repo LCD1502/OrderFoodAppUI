@@ -60,7 +60,7 @@ namespace OrderFoodAppUI.Views
         }    
         private void btnHistory_Clicked(object sender, EventArgs e)
         {
-           App.Current.MainPage.Navigation.PushAsync(new HistoryView(PersonalUser), true);
+                App.Current.MainPage.Navigation.PushAsync(new HistoryView(), true);
         }
         private void BtnLogout_Clicked(object sender, EventArgs e)
         {

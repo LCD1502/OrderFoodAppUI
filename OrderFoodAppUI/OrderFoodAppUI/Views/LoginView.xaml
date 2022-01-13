@@ -11,7 +11,8 @@
         <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <!--<RowDefinition Height="50"/>-->
+                <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -25,15 +26,16 @@
                     <ColumnDefinition Width="*"/>
                     <ColumnDefinition Width="30"/>
                 </Grid.ColumnDefinitions>
-                <Image Source="back.png" Grid.Column="0" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start">
+                <!--<Image Source="back.png" Grid.Column="0" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Image.GestureRecognizers>
                 </Image>
                 <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="Shopping Cart"/>
-                <Image Source="cart.png" Grid.Column="2" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Image Source="cart.png" Grid.Column="2" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start"/>-->
             </Grid>
-            <Image Source="logo.png"  Margin="20,20,20,0" Aspect="AspectFit" WidthRequest="200" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Center"/>
+            <Image Source="logo.png"  Margin="20,20,20,0" Aspect="AspectFit" WidthRequest="200" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+                <Label Text="FOODAPP" HorizontalOptions="Center" FontSize="25" Grid.Row="1"></Label>
             <Frame HasShadow="True" Grid.Row="2" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                 <controls:CustomEntry x:Name="Username" Placeholder="Account/ Email" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="mail" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
             </Frame>

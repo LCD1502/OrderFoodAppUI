@@ -10,27 +10,64 @@
             <StackLayout>
                 <Label Style="{StaticResource LabelTitleStyle}" 
                        VerticalTextAlignment="Center" 
-                       HorizontalTextAlignment="Center" Text="Shopping Cart" Margin="10"/>
-                <Frame>
-                    <Image Source="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" ></Image>
-                </Frame>
+                       HorizontalTextAlignment="Center" Text="Tài khoản" Margin="10"/>
                 <Frame x:Name="Person">
-                    <Label Text="Khách" Style="{StaticResource LabelTitleStyle}"></Label>
+                    <StackLayout>
+                        <Image Source="https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png" ></Image>
+                        <Label x:Name="lbName" Text="Khách" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center" FontSize="25"></Label>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"></RowDefinition>
+                                <RowDefinition Height="*"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="3*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Label  Text="SĐT:" Style="{StaticResource LabelTitleStyle}" FontSize="17" Grid.Column="0" Grid.Row="0"></Label>
+                            <Label x:Name="lbSDT" Text="Trống" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0" FontAttributes="Italic" FontSize="17" HorizontalOptions="End"></Label>
+                            <StackLayout Grid.Column="0" Grid.Row="1" Orientation="Horizontal">
+                                <Image Source="mail.png" WidthRequest="20"></Image>
+                                <Label Text="Email:" Style="{StaticResource LabelTitleStyle}" FontSize="17" >
+                                </Label>
+                            </StackLayout>
+                            
+                            <Label x:Name="lbEmail" Text="Trống" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="1" FontAttributes="Italic" FontSize="17"  HorizontalOptions="End"></Label>
+                        </Grid>
+                        
+                        <Label Text="Chỉnh sửa" BackgroundColor="White" TextColor="Black" Style="{StaticResource LabelTitleStyle}"  FontSize="18" Padding="0,5,10,5"
+                               VerticalOptions="Center" 
+                               HorizontalTextAlignment="Start">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+                        <!--<Button Text="Chỉnh sửa" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center" ></Button>-->
+                    </StackLayout>
                 </Frame>
                 <Frame x:Name="Setting">
-                    <Label Text="Cài đặt" Style="{StaticResource LabelTitleStyle}"></Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Image Source="setting.png"></Image>
+                        <Label BackgroundColor="Bisque" Text="Cài đặt" Style="{StaticResource LabelTitleStyle}"></Label>
+                    </StackLayout>
+                    
                 </Frame>
                 <Frame x:Name="History">
-                    <Button x:Name="btnHistory" Text="Lịch sử" Style="{StaticResource LabelTitleStyle}" Clicked="btnHistory_Clicked"></Button>
+                    <Button x:Name="btnHistory" Text="Lịch sử" HorizontalOptions="Center"
+                            Style="{StaticResource LabelTitleStyle}" Clicked="btnHistory_Clicked"></Button>
                 </Frame>
-                
-                <Label Text="Login!" BackgroundColor="{StaticResource MainColor}" TextColor="Black"
+                <Button x:Name="BtnLogout"  Text="Đăng xuất"  Clicked="BtnLogout_Clicked" 
+                        BackgroundColor="Red" TextColor="White" 
+                        Style="{StaticResource LabelTitleStyle}" CornerRadius="20" HorizontalOptions="Center"
+                        Margin="10" FontSize="18" ></Button>
+        
+                <!--<Label Text="Đăng xuất" BackgroundColor="Red" TextColor="White" Style="{StaticResource LabelTitleStyle}"  Margin="10" FontSize="18"
                     VerticalOptions="Center" 
                     HorizontalOptions="CenterAndExpand" Padding="20">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
                     </Label.GestureRecognizers>
-                </Label>
+                </Label>-->
                
             </StackLayout>
         </ScrollView>

@@ -33,7 +33,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <Frame Grid.Column="0" Grid.Row="0" HeightRequest="50" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                    <Frame Grid.Column="0" Grid.Row="0" HeightRequest="500" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout Orientation="Horizontal">
                             <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False" BackgroundColor="{StaticResource AccentColor}">
                                 <StackLayout  VerticalOptions="Center" HorizontalOptions="Center">
@@ -41,18 +41,19 @@
                                 </StackLayout>
                             </Frame>
                             <Label x:Name="LabelLocation" VerticalTextAlignment="Center" Style="{StaticResource LabelDefaultStyle}"/>
+                            
                         </StackLayout>
                     </Frame>
-                    <!--<Frame Grid.Column="1" Grid.Row="0" HeightRequest="50" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
+                    <Frame Grid.Column="1" Grid.Row="0" HeightRequest="500" CornerRadius="25" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout Orientation="Horizontal">
-                            <Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False" BackgroundColor="{StaticResource AccentColor}">
+                            <!--<Frame HeightRequest="50" WidthRequest="50" CornerRadius="25" Padding="0" HasShadow="False" BackgroundColor="{StaticResource AccentColor}">
                                 <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
                                     <Image Source="oclock" VerticalOptions="Center" HeightRequest="30" WidthRequest="30" Aspect="AspectFit"/>
                                 </StackLayout>
-                            </Frame>
-                            <Label Text="333, BD, VN" VerticalTextAlignment="Center" Style="{StaticResource LabelDefaultStyle}"/>
+                            </Frame>-->
+                            <Label x:Name="LabelLocation2" VerticalTextAlignment="Center" FontSize="Small" Style="{StaticResource LabelDefaultStyle}"/>
                         </StackLayout>
-                    </Frame>-->
+                    </Frame>
                 </Grid>
                 <Label Margin="20,20,20,0" Style="{StaticResource LabelWellcomeStyle}" Text="Danh Mục"/>
                 <Grid Margin="20,20,20,0" ColumnSpacing="20">

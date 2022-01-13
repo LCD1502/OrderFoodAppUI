@@ -26,16 +26,50 @@ namespace OrderFoodAppUI.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             PersonalUser = user;
+            PersonInit(user);
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        void PersonInit(User user)
+        {
+            if(user.SDT==null)
+            {
+                if (user.EMAIL == null)
+                {     
+                    lbName.Text = user.HOTEN;
+                }
+                else
+                {
+                    lbName.Text = user.HOTEN;
+                    lbEmail.Text =user.EMAIL;
+                }    
+            }    
+            else
+            {
+                if (user.EMAIL == null)
+                {
+                    lbName.Text = user.HOTEN;
+                    lbSDT.Text = user.SDT;
+                }
+                else
+                {
+                    lbName.Text = user.HOTEN;
+                    lbSDT.Text =  user.SDT;
+                    lbEmail.Text = user.EMAIL;
+                }
+            }     
+        }    
+        private void btnHistory_Clicked(object sender, EventArgs e)
+        {
+                App.Current.MainPage.Navigation.PushAsync(new HistoryView(), true);
+        }
+        private void BtnLogout_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
         }
 
-        private void btnHistory_Clicked(object sender, EventArgs e)
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new HistoryView(PersonalUser), true);
+            App.Current.MainPage.Navigation.PushAsync(new PersonalUpdateView(), true);
         }
     }
 }

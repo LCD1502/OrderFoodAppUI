@@ -8,6 +8,7 @@ namespace OrderFoodAppUI.Views
     {
         public int MAND { get; set; }
         public string USERNAME { get; set; }
+        public string PASS { get; set; }
         public string HOTEN { get; set; }
         public string SDT { get; set; }
         public string EMAIL { get; set; }

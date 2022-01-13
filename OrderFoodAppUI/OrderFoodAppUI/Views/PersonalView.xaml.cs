@@ -36,14 +36,11 @@ namespace OrderFoodAppUI.Views
                 if (user.EMAIL == null)
                 {     
                     lbName.Text = user.HOTEN;
-                lbSDT.Text = "Số điện thoại: " + "đang cập nhật";
-                lbEmail.Text = "Email: " + "đang cập nhật";
                 }
                 else
                 {
                     lbName.Text = user.HOTEN;
-                    lbSDT.Text = "Số điện thoại: " + "đang cập nhật";
-                    lbEmail.Text = "Email: " + user.EMAIL;
+                    lbEmail.Text =user.EMAIL;
                 }    
             }    
             else
@@ -51,17 +48,15 @@ namespace OrderFoodAppUI.Views
                 if (user.EMAIL == null)
                 {
                     lbName.Text = user.HOTEN;
-                    lbSDT.Text = "Số điện thoại: " + user.SDT;
-                    lbEmail.Text = "Email: " + "đang cập nhật"; 
+                    lbSDT.Text = user.SDT;
                 }
                 else
                 {
                     lbName.Text = user.HOTEN;
-                    lbSDT.Text = "Số điện thoại: " + user.SDT;
-                    lbEmail.Text = "Email: " + user.EMAIL;
+                    lbSDT.Text =  user.SDT;
+                    lbEmail.Text = user.EMAIL;
                 }
-            }    
-            
+            }     
         }    
         private void btnHistory_Clicked(object sender, EventArgs e)
         {
@@ -70,6 +65,11 @@ namespace OrderFoodAppUI.Views
         private void BtnLogout_Clicked(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new PersonalUpdateView(), true);
         }
     }
 }

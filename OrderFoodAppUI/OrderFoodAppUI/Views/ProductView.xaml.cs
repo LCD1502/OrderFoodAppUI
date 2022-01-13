@@ -19,7 +19,7 @@ namespace OrderFoodAppUI.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            //ListCartInit();
+            ListCartInit(ProUser);
         }
         public ProductView(User user)
         {
@@ -118,6 +118,11 @@ namespace OrderFoodAppUI.Views
                 }
             }
             ListCartInit(ProUser);
+        }
+
+        private void BtnRefresh_Clicked(object sender, EventArgs e)
+        {
+             ListCartInit(ProUser);
         }
     }
 }

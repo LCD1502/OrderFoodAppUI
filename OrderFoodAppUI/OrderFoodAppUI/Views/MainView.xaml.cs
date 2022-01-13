@@ -30,7 +30,7 @@ namespace OrderFoodAppUI.Views
             this.Children.Add(new HomeView(user) { IconImageSource = "home" }); //pass
             this.Children.Add(new SearchView(user) { IconImageSource = "search" }); //pass
             this.Children.Add(new ProductView(user) { IconImageSource = "list" });
-            this.Children.Add(new PersonalView(user) { IconImageSource = "user" });
+            this.Children.Add(new PersonalView(user) { IconImageSource = "user" });       
             //this.Children.Add(new HistoryView(user) { IconImageSource = "history"});
         }
 

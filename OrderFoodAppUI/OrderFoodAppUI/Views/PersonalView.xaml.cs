@@ -26,16 +26,51 @@ namespace OrderFoodAppUI.Views
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             PersonalUser = user;
+            PersonInit(user);
         }
 
-        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        void PersonInit(User user)
         {
-            App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
-        }
-
+            if(user.SDT==null)
+            {
+                if (user.EMAIL == null)
+                {     
+                    lbName.Text = user.HOTEN;
+                lbSDT.Text = "Số điện thoại: " + "đang cập nhật";
+                lbEmail.Text = "Email: " + "đang cập nhật";
+                }
+                else
+                {
+                    lbName.Text = user.HOTEN;
+                    lbSDT.Text = "Số điện thoại: " + "đang cập nhật";
+                    lbEmail.Text = "Email: " + user.EMAIL;
+                }    
+            }    
+            else
+            {
+                if (user.EMAIL == null)
+                {
+                    lbName.Text = user.HOTEN;
+                    lbSDT.Text = "Số điện thoại: " + user.SDT;
+                    lbEmail.Text = "Email: " + "đang cập nhật"; 
+                }
+                else
+                {
+                    lbName.Text = user.HOTEN;
+                    lbSDT.Text = "Số điện thoại: " + user.SDT;
+                    lbEmail.Text = "Email: " + user.EMAIL;
+                }
+            }    
+            
+        }    
         private void btnHistory_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new HistoryView());
+            App.Current.MainPage.Navigation.PushAsync(new HistoryView(), true);
+        }
+
+        private void BtnLogout_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
         }
     }
 }

@@ -14,7 +14,6 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HistoryView : ContentPage
     {
-        User ProUser;
 
         public HistoryView()
         {
@@ -24,15 +23,14 @@ namespace OrderFoodAppUI.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            user = ProUser;
             ListHistoryInit(user);
         }
 
         async void ListHistoryInit(User user)
         {
             HttpClient httpClient = new HttpClient();
-            var HistoryList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=" + user.MAND.ToString());
-            var HistoryListCV = JsonConvert.DeserializeObject<List<Cart>>(HistoryList);
+            var HistoryList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetHoaDonByUser?mand=" + user.MAND.ToString());
+            var HistoryListCV = JsonConvert.DeserializeObject<List<Receipt>>(HistoryList);
 
             LstHistory.ItemsSource = HistoryListCV;
         }

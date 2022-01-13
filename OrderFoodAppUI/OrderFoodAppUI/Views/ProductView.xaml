@@ -42,8 +42,8 @@
                                                     <Label Text="x" VerticalTextAlignment="Center" Style="{StaticResource LabelTitleStyle}" FontSize="15" FontAttributes="Bold" HorizontalOptions="Start"/>
                                                     <Label Text="{Binding SOLUONG}" VerticalOptions="Center" Style="{StaticResource LabelWellcomeStyle}" FontSize="15" HorizontalOptions="StartAndExpand"/>
                                                 </StackLayout>
-                                                <Button Text="-" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center"></Button>
-                                                <Button Text="+" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center"></Button>
+                                                <Button  Text="-" Grid.Row="1" Grid.Column="2" HorizontalOptions="Center" Clicked="stepper_Clicked" CommandParameter="{Binding MAGH}"></Button>
+                                                <Button  Text="+" Grid.Row="1" Grid.Column="3" HorizontalOptions="Center" Clicked="stepper_Clicked" CommandParameter="{Binding MAGH}"></Button>
                                                 <StackLayout Margin="5,0,5,0" Orientation="Horizontal" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="End">
                                                     <Label Text="{Binding TONGGIA}" VerticalOptions="Center" FontAttributes="Bold"  FontSize="20" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="EndAndExpand"/>
                                                     <Label Text="VND" VerticalOptions="Center" FontAttributes="Bold"  FontSize="15" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="StartAndExpand"/>
@@ -73,12 +73,12 @@
                     </StackLayout>
                     <Label Text="Phí ship:" Grid.Column="0" Grid.Row="1" Style="{StaticResource LabelTitleStyle}" FontSize="18" Margin="10,0,0,0"></Label>
                     <StackLayout Grid.Column="1" Grid.Row="1" Orientation="Horizontal" HorizontalOptions="End" >
-                        <Label x:Name="w" Text="1000" FontSize="18" Style="{StaticResource LabelTitleStyle}"></Label>
+                        <Label x:Name="w" Text="20000" FontSize="18" Style="{StaticResource LabelTitleStyle}"></Label>
                         <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}" FontSize="15" Margin="0,0,10,0"></Label>
                     </StackLayout>
                     <Label Text="Tổng tiền :" Grid.Column="0" Grid.Row="2" Style="{StaticResource LabelTitleStyle}" FontSize="25" FontAttributes="Bold" Margin="10,0,0,0"></Label>
                     <StackLayout Grid.Column="1" Grid.Row="2" Orientation="Horizontal" HorizontalOptions="End" >
-                        <Label x:Name="ww" Text="1000"  Style="{StaticResource LabelTitleStyle}"></Label>
+                        <Label x:Name="LbTongTien" Text="1000"  Style="{StaticResource LabelTitleStyle}"></Label>
                         <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}"  Margin="0,0,10,0"></Label>
                     </StackLayout>
                 </Grid>

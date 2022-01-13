@@ -31,37 +31,32 @@
         <Grid RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
             <Frame Grid.Row="0" Margin="30,90,30,0" HeightRequest="100" >
                 <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center">
-                    <Label Grid.Row="0" Text="181.000 VND" Style="{StaticResource MainAmount}" Margin="0,20,0,0"/>
-                    <Label Grid.Row="1" Text="September 24, 7:32pm" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
+                    <Label x:Name="USname" Grid.Row="0" Text="181.000 VND" Style="{StaticResource MainAmount}" Margin="0,20,0,0"/>
+                    <Label x:Name="Time" Grid.Row="1" Text="September 24, 7:32pm" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
                     <Line  Grid.Row="2" Style="{StaticResource DivisionLine}" />
                 </Grid>
             </Frame>
             <Image Grid.Row="0" Source="user.jpg" HorizontalOptions="Center" TranslationY="-35" HeightRequest="90" WidthRequest="90"/>
-
-
             <Frame Grid.Row="1" Margin="30,-15,30,0" HeightRequest="292">
                 <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
-
-                    <Label Grid.Row="2" Grid.Column="0" Text="Giá tiền" FontSize="20" TextColor="#4f4f4f" FontAttributes="Bold" Margin="0,0,0,10"/>
+                    <Label Grid.Row="2" Grid.Column="0" Text="Tiền hàng" FontSize="20" TextColor="#4f4f4f" FontAttributes="Bold" Margin="0,0,0,10"/>
                     <Label Grid.Row="3" Grid.Column="0" Text="Phí ship" FontSize="22" TextColor="#4f4f4f" FontAttributes="Bold"/>
-                    <Label Grid.Row="2" Grid.Column="1" Text="200.000"  FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
-                    <Label Grid.Row="3" Grid.Column="1" Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End"/>
+                    <Label x:Name="Money" Grid.Row="2" Grid.Column="1" Text="200.000"  FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
+                    <Label x:Name="Ship" Grid.Row="3" Grid.Column="1" Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End"/>
                     <Line  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,30"
                     Style="{StaticResource DivisionLine}" />
                     <Label Grid.Row="5" Grid.Column="0" Text="Tổng tiền" FontSize="24" TextColor="#4f4f4f" FontAttributes="Bold"/>
-                    <Label Grid.Row="5" Grid.Column="1" Text="250.000"  FontSize="24" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
+                    <Label x:Name="Total" Grid.Row="5" Grid.Column="1" Text="250.000"  FontSize="24" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
 
                     <Line  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
                     Style="{StaticResource DivisionLine}" />
                     <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
                     <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="Xác nhận đặt hàng" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
-
                 </Grid>
             </Frame>
-            
             <Grid Grid.Row="2" ColumnDefinitions="*,*" >
-                <Button Grid.Column="0"  ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
-                <Button Grid.Column="1" Text="Đặt hàng" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
+                <Button x:Name="BtnLater" Clicked="BtnLater_Clicked" Grid.Column="0"  ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
+                <Button x:Name="BtnOrder" Clicked="BtnOrder_Clicked" Grid.Column="1" Text="Đặt hàng" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
             </Grid>
         </Grid>
         

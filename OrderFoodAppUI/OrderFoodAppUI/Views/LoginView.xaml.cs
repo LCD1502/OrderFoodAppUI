@@ -47,7 +47,7 @@ namespace OrderFoodAppUI.Views
             {
                 var UserCV = JsonConvert.DeserializeObject<User>(User);
                 GlobalUser = UserCV;        
-                await DisplayAlert("Thông báo", "Đăng nhập thành công ", "OK");
+                //await DisplayAlert("Thông báo", "Đăng nhập thành công ", "OK");
                 await App.Current.MainPage.Navigation.PushAsync(new MainView(GlobalUser), true);
             }
         }

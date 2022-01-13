@@ -14,11 +14,7 @@
             </Frame>
             <StackLayout Orientation="Horizontal">
             <Label  Text="Danh sách nhà hàng" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"  Margin="10,0,10,5" Style="{StaticResource LabelTitleStyle}"></Label>
-            <Image Source="filter.png" Grid.Column="1" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Center" Margin="0,0,5,0">
-                <Image.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
-                </Image.GestureRecognizers>
-            </Image>
+            
             </StackLayout>
             <Label x:Name="NotFound" Text="Không tìm thấy nhà hàng" HorizontalOptions="Center" TextColor="{StaticResource TextColor}" IsVisible="false" Margin="10" Style="{StaticResource LabelTitleStyle}"></Label>
 
@@ -46,9 +42,8 @@
                                         <Label Margin="5,0,5,0" Text="{Binding DIADIEM}" Style="{StaticResource LabelTitleStyle}" FontSize="11" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>
                                         <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" BackgroundColor="{StaticResource BgColor}"/>-->
                                         <StackLayout Margin="5,0,5,0" Orientation="Horizontal" Grid.Column="1" Grid.Row="2">
-                                            <Label Text="30.000 đ" VerticalTextAlignment="Center" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Start"/>
-                                            <Label Text="(Kg)" VerticalOptions="Center" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="StartAndExpand"/>
-                                            <ImageButton x:Name="BtnPlus" Clicked="BtnPlus_Clicked" Source="gps" WidthRequest="50" HeightRequest="50" HorizontalOptions="End" BackgroundColor="White" CornerRadius="40" Margin="5,5,5,5"/>
+                                            <Label Text="4.3/5" VerticalTextAlignment="Center" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Start"/>
+                                            <ImageButton x:Name="BtnPlus" Clicked="BtnPlus_Clicked" Source="star" WidthRequest="25" HeightRequest="25" HorizontalOptions="End" BackgroundColor="White" CornerRadius="40" Margin="5,5,5,5"/>
 
                                         </StackLayout>
                                     </Grid>

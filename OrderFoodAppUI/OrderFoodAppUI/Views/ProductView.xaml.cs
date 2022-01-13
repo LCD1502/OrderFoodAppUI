@@ -27,8 +27,12 @@ namespace OrderFoodAppUI.Views
             InitializeComponent();
             ProUser = user;
             ListCartInit(ProUser);
+            OnAppearing();
         }
-
+        protected virtual void OnAppearing()
+        {
+            ListCartInit(ProUser);
+        }
         List<Cart> carts = new List<Cart>();
 
         async void ListCartInit( User user)

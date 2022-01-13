@@ -129,7 +129,7 @@ namespace OrderFoodAppUI.Views
             tggiao = tggiao.Replace("CH", "PM");
 
             //goi api them vao hoa don
-            var MAHD = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertHoaDon?mand="+BillUser.MAND.ToString()+"&tongtien="+50000.ToString()+"&tgdat="+tgdat+"&tggiao="+tggiao+"&ship="+Ship.Text);
+            var MAHD = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertHoaDon?mand="+BillUser.MAND.ToString()+"&tongtien="+ Total.Text + "&tgdat="+tgdat+"&tggiao="+tggiao+"&ship="+Ship.Text);
             MAHD = MAHD.Replace("[{\"MAHD\":", string.Empty); //xu li ma hoa don nhan ve
             MAHD = MAHD.Replace(".0}]", string.Empty);
             

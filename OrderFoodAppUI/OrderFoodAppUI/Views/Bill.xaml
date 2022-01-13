@@ -50,7 +50,7 @@
 
                     <Line  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
                     Style="{StaticResource DivisionLine}" />
-                    <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                    <Label x:Name="MyLocation" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
                     <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="Xác nhận đặt hàng" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
                 </Grid>
             </Frame>

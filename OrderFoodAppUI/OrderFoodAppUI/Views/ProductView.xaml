@@ -82,7 +82,7 @@
                         <Label Text="VNĐ" Style="{StaticResource LabelTitleStyle}"  Margin="0,0,10,0"></Label>
                     </StackLayout>
                 </Grid>
-                <Button Text="Đặt hàng" CornerRadius="10" x:Name="btnThanhToan" Clicked="btnThanhToan_Clicked" Margin="0,0,0,20" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center"></Button>
+                <Button Text="Đặt hàng" CornerRadius="10" TextColor="White" BackgroundColor="{StaticResource MainColor}" x:Name="btnThanhToan" Clicked="btnThanhToan_Clicked" Margin="0,0,0,20" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center"></Button>
             </StackLayout>
         </ScrollView>
         <!--<AbsoluteLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">

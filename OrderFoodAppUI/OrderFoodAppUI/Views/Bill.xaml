@@ -27,6 +27,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
+        
         <Grid RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
             <Frame Grid.Row="0" Margin="30,90,30,0" HeightRequest="100" >
                 <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center">
@@ -53,15 +54,16 @@
                     <Line  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15"
                     Style="{StaticResource DivisionLine}" />
                     <Label Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
-                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="UIT - Mobile Developer" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
+                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="Xác nhận đặt hàng" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
 
                 </Grid>
             </Frame>
             
             <Grid Grid.Row="2" ColumnDefinitions="*,*" >
-                <Button Grid.Column="0"  ImageSource="Arrow" Text="Pay Later" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
-                <Button Grid.Column="1" Text="Pay now" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
+                <Button Grid.Column="0"  ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
+                <Button Grid.Column="1" Text="Đặt hàng" TextColor="White" FontAttributes="Bold" BackgroundColor="Black" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
             </Grid>
         </Grid>
+        
     </ContentPage.Content>
 </ContentPage>

@@ -14,6 +14,7 @@ namespace OrderFoodAppUI.Views
     {
         public Bill()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
     }

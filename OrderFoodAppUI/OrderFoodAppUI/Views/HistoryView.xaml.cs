@@ -35,5 +35,9 @@ namespace OrderFoodAppUI.Views
             LstHistory.ItemsSource = HistoryListCV;
         }
 
+        private void btnThanhToan_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }

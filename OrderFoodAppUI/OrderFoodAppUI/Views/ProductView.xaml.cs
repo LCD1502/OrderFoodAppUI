@@ -29,13 +29,32 @@ namespace OrderFoodAppUI.Views
             ListCartInit(ProUser);
         }
 
+        List<Cart> carts = new List<Cart>();
+
         async void ListCartInit( User user)
         {
-            HttpClient httpClient = new HttpClient();
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand="+user.MAND.ToString());
-            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            if(user!=null)
+            {
+                HttpClient httpClient = new HttpClient();
+                var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=" + user.MAND.ToString());
+                var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+                carts = CartListCV;
+                float tien = 0;
+                float TongTien;
+                foreach (Cart x in carts)
+                {
+                    tien = tien + x.TONGGIA;
+                }
+                Money.Text = tien.ToString();
+                TongTien = tien + 20000;
+                LbTongTien.Text = TongTien.ToString();
+                LstCart.ItemsSource = CartListCV;
+            }    
+        }
 
-            LstCart.ItemsSource = CartListCV;
+        public void ListCart(List<Cart> carts)
+        {
+                LstCart.ItemsSource = carts;
         }
 
         //private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -69,14 +88,59 @@ namespace OrderFoodAppUI.Views
         {
             HttpClient httpClient = new HttpClient();
             await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh="+1);
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
-            var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
-            LstCart.ItemsSource = CartListCV;
+           // var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+           // var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            //LstCart.ItemsSource = CartListCV;
         }
 
         private void btnThanhToan_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new Bill());
+            App.Current.MainPage.Navigation.PushAsync(new Bill(), true);
+            //Navigation.PushAsync(new Bill());
+        }
+
+        private async void stepper_Clicked(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            int MAGH = int.Parse(button.CommandParameter.ToString());
+            string text = button.Text.ToString();
+            if (text == "+")
+            {
+                
+                foreach(Cart x in carts)
+                {
+                    if(x.MAGH == MAGH)
+                    {
+                        HttpClient httpClient = new HttpClient();
+                        await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand=" + ProUser.MAND.ToString()+"&mama=" +x.MAMA.ToString());
+                        break;
+                   }      
+                }    
+            }
+            else {
+               foreach (Cart x in carts)
+               {
+                    if (x.MAGH == MAGH)
+                   {
+                        if (x.SOLUONG > 0)
+                        {
+                           // x.SOLUONG--;
+                            HttpClient httpClient = new HttpClient();
+                            await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh=" + MAGH.ToString());
+                           // await DisplayAlert("a", x.SOLUONG.ToString(), "ok");
+                            break;
+                        }    
+                            
+                    }
+                }
+            }
+
+            ListCartInit(ProUser);
+            //HttpClient httpClient = new HttpClient();
+            //await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh=" + 1);
+            // var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=1");
+            // var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            //LstCart.ItemsSource = CartListCV;
         }
     }
 }

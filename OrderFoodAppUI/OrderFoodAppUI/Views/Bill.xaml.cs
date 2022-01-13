@@ -29,12 +29,12 @@ namespace OrderFoodAppUI.Views
             BillInit(carts, BillUser);
         }
 
-        private static double DegreesToRadians(double degrees)
+        private static double DegreesToRadians(double degrees) //ham doi do sang rad
         {
             return degrees * Math.PI / 180.0;
         }
 
-        public static double CalculateDistance(Location location1, Location location2)
+        public static double CalculateDistance(Location location1, Location location2) //ham tinh khoang cach 2 toa do gps
         {
             double circumference = 40000.0; // Earth's circumference at the equator in km
             double distance = 0.0;
@@ -62,8 +62,11 @@ namespace OrderFoodAppUI.Views
         }
         async void BillInit(List<Cart> cart, User user)
         {
+            //khoi tao cho UI
             USname.Text = user.HOTEN;
             Time.Text = DateTime.Now.ToString();
+
+            //Tinh tong gia tien
             float tien=0;
             foreach (Cart x in cart)
             {
@@ -73,6 +76,7 @@ namespace OrderFoodAppUI.Views
             Ship.Text = "20000";
             Total.Text = (tien + 20000).ToString();
 
+            //lay vitri hien tai
             var location = await Geolocation.GetLastKnownLocationAsync();
             var location2 = await Geolocation.GetLastKnownLocationAsync();
 
@@ -116,24 +120,26 @@ namespace OrderFoodAppUI.Views
             DateTime time2 = time1.AddMinutes(15);//15 phút sau
             HttpClient httpClient = new HttpClient();
 
-            string tgdat = time1.ToString("MM/dd/yyyy HH:mm:ss"); // chuyen doi thoi gian hop le
+            string tgdat = time1.ToString("MM/dd/yyyy HH:mm:ss"); // chuyen doi thoi gian dat hop le
             tgdat=tgdat.Replace("SA", "AM");
             tgdat = tgdat.Replace("CH", "PM");
 
-            string tggiao = time1.ToString("MM/dd/yyyy HH:mm:ss"); // chuyen doi thoi gian hop le 15 phut sau
+            string tggiao = time1.ToString("MM/dd/yyyy HH:mm:ss"); // chuyen doi thoi gian giao hop le 15 phut sau
             tggiao = tggiao.Replace("SA", "AM");
             tggiao = tggiao.Replace("CH", "PM");
 
+            //goi api them vao hoa don
             var MAHD = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertHoaDon?mand="+BillUser.MAND.ToString()+"&tongtien="+50000.ToString()+"&tgdat="+tgdat+"&tggiao="+tggiao+"&ship="+Ship.Text);
-            MAHD = MAHD.Replace("[{\"MAHD\":", string.Empty);
+            MAHD = MAHD.Replace("[{\"MAHD\":", string.Empty); //xu li ma hoa don nhan ve
             MAHD = MAHD.Replace(".0}]", string.Empty);
             
+            //them vao trang chi tiet hoa don
             foreach (Cart x in carts)
             {
                 var aaa = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertCTHoaDon?mahd="+MAHD+"&mama="+x.MAMA+"&soluong="+x.SOLUONG);
             }
 
-            await DisplayAlert("Thông báo", "Đặt hàng thành công thời  gian giao hàng dự kiến: " + time2.ToString() + "\n" + MAHD, "ok");
+            await DisplayAlert("Thông báo", "Đặt hàng thành công\nThời gian giao hàng dự kiến: " + time2.ToString() + "\nMã Hóa đơn: " + MAHD, "OK");
             App.Current.MainPage.Navigation.PopAsync(true);
         }
     }

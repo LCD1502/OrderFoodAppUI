@@ -51,5 +51,10 @@ namespace OrderFoodAppUI.Views
                 await App.Current.MainPage.Navigation.PushAsync(new MainView(GlobalUser), true);
             }
         }
+
+        private void CmdRegister_Clicked(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new RegisterView(), true);
+        }
     }
 }

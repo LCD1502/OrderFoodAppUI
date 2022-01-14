@@ -46,7 +46,7 @@
                 <Button x:Name="CmdLogin" Text="Login" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White" BackgroundColor="{StaticResource MainColor}" Clicked="CmdLogin_Clicked"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="5" IsClippedToBounds="True" Margin="20,20,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <Button Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White"  BackgroundColor="{StaticResource AccentColor}"/>
+                <Button x:Name="CmdRegister" Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White"  BackgroundColor="{StaticResource AccentColor}" Clicked="CmdRegister_Clicked"/>
             </Frame>
             <Label Style="{StaticResource LabelTitleStyle}" Grid.Row="6" VerticalTextAlignment="Center" TextColor="Gray" HorizontalTextAlignment="Center" Text="Forgot your password!" Margin="0,15,0,20"/>
         </Grid>

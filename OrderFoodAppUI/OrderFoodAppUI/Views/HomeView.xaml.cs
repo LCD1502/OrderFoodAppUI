@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Essentials;
@@ -27,7 +29,28 @@ namespace OrderFoodAppUI.Views
             //await Placeinit();
             HomeUser = user;
             Hello.Text = "Xin chào " + user.HOTEN;
-            
+            InfoInit(user);
+
+
+        }
+        List<Restaurant> restaurants = new List<Restaurant>();
+        async void InfoInit(User user)
+        {
+            HttpClient httpClient = new HttpClient();
+            var ResList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetNhaHang");
+            var RestListCV = JsonConvert.DeserializeObject<List<Restaurant>>(ResList);
+            restaurants = RestListCV;
+            Hinh1.Source = restaurants[0].IMG;
+            Hinh2.Source = restaurants[1].IMG;
+            Hinh3.Source = restaurants[2].IMG;
+            Hinh4.Source = restaurants[3].IMG;
+            Hinh5.Source = restaurants[4].IMG;
+
+            Ten1.Text = restaurants[0].TEN;
+            Ten2.Text = restaurants[1].TEN;
+            Ten3.Text = restaurants[2].TEN;
+            Ten4.Text = restaurants[3].TEN;
+            Ten5.Text = restaurants[4].TEN;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)

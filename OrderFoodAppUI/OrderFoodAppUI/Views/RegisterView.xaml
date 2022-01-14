@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BackgroundColor="{StaticResource BgColor}"
+             xmlns:controls="clr-namespace:OrderFoodAppUI.Controls"
+             x:Class="OrderFoodAppUI.Views.RegisterView"
+             Title="Register">
+    <ContentPage.Content>
+        <ScrollView>
+            
+        <StackLayout>
+                <Label Text="Username" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <controls:CustomEntry x:Name="username" 
+                                      Placeholder="Username" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="user_circle" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+            <Label Text="Password" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+            <controls:CustomEntry x:Name="password"
+                                  IsPassword="True"
+                                      Placeholder="Password" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="user_circle" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+            <Label Text="Họ và tên" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+            <controls:CustomEntry x:Name="name" 
+                                      Placeholder="Họ và tên" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="mail" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+            <Label Text="Số điện thoại" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <controls:CustomEntry x:Name="phone_number" 
+                                      Placeholder="Số điện thoại" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="mail" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+                <Label Text="Email" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <controls:CustomEntry x:Name="email" 
+                                      Placeholder="Email" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="mail" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+                <Label Text="Ngày sinh" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <DatePicker x:Name="DateOfBirth" Style="{StaticResource LabelTitleStyle}" BackgroundColor="White" Margin="10,0,10,0" ></DatePicker>
+                <Button x:Name="cmdDangkybtn" Text="Đăng ký" Style="{StaticResource LabelTitleStyle}" TextColor="White" BackgroundColor="{StaticResource MainColor}" FontSize="17" HorizontalOptions="Center" CornerRadius="15" Margin="10" Clicked="cmdDangkybtn_Clicked"> </Button>
+        </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

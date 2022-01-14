@@ -19,7 +19,7 @@ namespace OrderFoodAppUI.Views
         {
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
-            //ListCartInit();
+            ListCartInit(ProUser);
         }
         public ProductView(User user)
         {
@@ -27,8 +27,12 @@ namespace OrderFoodAppUI.Views
             InitializeComponent();
             ProUser = user;
             ListCartInit(ProUser);
+            OnAppearing();
         }
-
+        protected virtual void OnAppearing()
+        {
+            ListCartInit(ProUser);
+        }
         List<Cart> carts = new List<Cart>();
 
         async void ListCartInit( User user)
@@ -118,6 +122,11 @@ namespace OrderFoodAppUI.Views
                 }
             }
             ListCartInit(ProUser);
+        }
+
+        private void BtnRefresh_Clicked(object sender, EventArgs e)
+        {
+             ListCartInit(ProUser);
         }
     }
 }

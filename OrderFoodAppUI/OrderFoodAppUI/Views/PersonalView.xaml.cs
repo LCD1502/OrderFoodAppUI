@@ -17,12 +17,14 @@ namespace OrderFoodAppUI.Views
         User PersonalUser;
         public PersonalView()
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
         }
 
         public PersonalView(User user)
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             PersonalUser = user;
@@ -69,7 +71,7 @@ namespace OrderFoodAppUI.Views
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new PersonalUpdateView(), true);
+            App.Current.MainPage.Navigation.PushAsync(new PersonalUpdateView(PersonalUser), true);
         }
     }
 }

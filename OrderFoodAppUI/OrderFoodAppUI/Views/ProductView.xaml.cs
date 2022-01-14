@@ -17,12 +17,14 @@ namespace OrderFoodAppUI.Views
         User ProUser;
         public ProductView()
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ListCartInit(ProUser);
         }
         public ProductView(User user)
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ProUser = user;

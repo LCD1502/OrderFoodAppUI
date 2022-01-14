@@ -17,6 +17,7 @@ namespace OrderFoodAppUI.Views
         User HomeUser;
         public HomeView()
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             //Placeinit();
@@ -24,6 +25,7 @@ namespace OrderFoodAppUI.Views
 
         public HomeView(User user)
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             //await Placeinit();

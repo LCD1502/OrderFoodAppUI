@@ -24,6 +24,7 @@ namespace OrderFoodAppUI.Views
         }
         public MainView(User user)
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             Guser = user;

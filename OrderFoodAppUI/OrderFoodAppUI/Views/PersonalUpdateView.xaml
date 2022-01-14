@@ -9,7 +9,7 @@
             <StackLayout>
                 <Label Text="Chỉnh sửa thông tin" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Center" Margin="10"></Label>
                 <Label Text="Tên" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
-                <controls:CustomEntry x:Name="Username" 
+                <controls:CustomEntry x:Name="InputName" 
                                       Placeholder="Họ và tên" 
                                       BorderColor="White" 
                                       BackgroundColor="White" FontFamily="{StaticResource Avo}" 
@@ -18,7 +18,7 @@
                                       ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
                                       IsCurvedCornersEnabled="True"/>
                 <Label Text="Số điện thoại" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
-                <controls:CustomEntry x:Name="a" 
+                <controls:CustomEntry x:Name="InputSDT" 
                                       Placeholder="Số điện thoại" 
                                       BorderColor="White" 
                                       BackgroundColor="White" FontFamily="{StaticResource Avo}" 
@@ -27,7 +27,7 @@
                                       ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
                                       IsCurvedCornersEnabled="True"/>
                 <Label Text="Email" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
-                <controls:CustomEntry x:Name="b" 
+                <controls:CustomEntry x:Name="InputEmail" 
                                       Placeholder="Email" 
                                       BorderColor="White" 
                                       BackgroundColor="White" FontFamily="{StaticResource Avo}" 
@@ -36,8 +36,19 @@
                                       ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
                                       IsCurvedCornersEnabled="True"/>
                 <Label Text="Ngày sinh" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
-                <DatePicker Style="{StaticResource LabelTitleStyle}" BackgroundColor="White" Margin="10,0,10,0" ></DatePicker>
-                <Button Text="Cập nhật" Style="{StaticResource LabelTitleStyle}" TextColor="White" BackgroundColor="{StaticResource MainColor}" FontSize="17" HorizontalOptions="Center" CornerRadius="15" Margin="10"> </Button>
+                <DatePicker x:Name="InputDOB" Style="{StaticResource LabelTitleStyle}" BackgroundColor="White" Margin="10,0,10,0" ></DatePicker>
+
+                <Label Text="Nhập lại mật khẩu" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <controls:CustomEntry x:Name="InputPass" 
+                                      Placeholder="Nhập lại mật khẩu" 
+                                      IsPassword="True" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="mail" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+                <Button x:Name="BtnUpdate" Clicked="BtnUpdate_Clicked" Text="Cập nhật" Style="{StaticResource LabelTitleStyle}" TextColor="White" BackgroundColor="{StaticResource MainColor}" FontSize="17" HorizontalOptions="Center" CornerRadius="15" Margin="10"> </Button>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

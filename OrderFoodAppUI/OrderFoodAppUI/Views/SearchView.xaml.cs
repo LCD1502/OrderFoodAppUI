@@ -18,12 +18,14 @@ namespace OrderFoodAppUI.Views
         User SearchUser;
         public SearchView()
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ListResInit();
         }
         public SearchView(User user)
         {
+            NavigationPage.SetHasBackButton(this, false);
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
             ListResInit();

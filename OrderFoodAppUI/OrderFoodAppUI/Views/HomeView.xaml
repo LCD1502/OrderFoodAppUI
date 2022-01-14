@@ -70,20 +70,20 @@
                     </Grid.RowDefinitions>
                     <Frame Grid.Column="0" Grid.Row="0" HeightRequest="100" BackgroundColor="{StaticResource MainColor}" CornerRadius="5" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout VerticalOptions="Center">
-                            <Image Source="food" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
+                            <Image Source="chic" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
                             <Label Text="Food" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center" TextColor="White"/>
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Column="1" Grid.Row="0" HeightRequest="100" BackgroundColor="{StaticResource MainColor}" CornerRadius="5" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout VerticalOptions="Center">
-                            <Image Source="cup" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
-                            <Label Text="Drinks" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center" TextColor="White"/>
+                            <Image Source="noodle" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
+                            <Label Text="Noodle" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center" TextColor="White"/>
                         </StackLayout>
                     </Frame>
                     <Frame Grid.Column="2" Grid.Row="0" HeightRequest="100" BackgroundColor="{StaticResource MainColor}" CornerRadius="5" HasShadow="True" IsClippedToBounds="True" Padding="0">
                         <StackLayout VerticalOptions="Center">
-                            <Image Source="cake" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
-                            <Label Text="Cakes" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center" TextColor="White"/>
+                            <Image Source="baguette" WidthRequest="50" HeightRequest="50" Aspect="AspectFit"/>
+                            <Label Text="Baguette" Style="{StaticResource LabelTitleStyle}" HorizontalTextAlignment="Center" TextColor="White"/>
                         </StackLayout>
                     </Frame>
                 </Grid>

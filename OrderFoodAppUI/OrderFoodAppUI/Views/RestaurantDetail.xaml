@@ -22,8 +22,8 @@
                             <Label Margin="0,3,3,3" Text="2.5Km" Style="{StaticResource LabelDefaultStyle}" HorizontalOptions="Start" TextColor="White"/>
                         <Image Margin="10,3,3,3" Source="imoji.png" WidthRequest="15" HeightRequest="15" Aspect="AspectFit" HorizontalOptions="Center"/>
                             <Label  Margin="0,3,3,3" Text="4.9" Style="{StaticResource LabelDefaultStyle}" HorizontalOptions="Start" TextColor="White"/>
+                        </StackLayout>
                     </StackLayout>
-            </StackLayout>
                 </Frame>
                 <Label Text="Món ăn" Margin="10,10,0,0" Style="{StaticResource LabelTitleStyle}" ></Label>
 

@@ -64,9 +64,16 @@ namespace OrderFoodAppUI.Views
         {
                 App.Current.MainPage.Navigation.PushAsync(new HistoryView(PersonalUser), true);
         }
-        private void BtnLogout_Clicked(object sender, EventArgs e)
+        private async void BtnLogout_Clicked(object sender, EventArgs e)
         {
-           App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
+            
+            bool answer = await DisplayAlert("Thông báo", "Bạn có muốn đăng xuất", "Có", "Không");
+            if (answer)
+            {
+                App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
+            }
+            else
+                return;
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
@@ -77,6 +84,14 @@ namespace OrderFoodAppUI.Views
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new HistoryView(PersonalUser), true);
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
+            var tabbedPage = this.Parent as TabbedPage;
+            Console.WriteLine(tabbedPage.ToString());
+            tabbedPage.CurrentPage = tabbedPage.Children[1];
         }
     }
 }

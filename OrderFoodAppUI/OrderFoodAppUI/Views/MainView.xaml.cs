@@ -12,7 +12,11 @@ namespace OrderFoodAppUI.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainView : TabbedPage
     {
-        public User Guser;        
+        public User Guser;
+        readonly Page tab1Page;
+        readonly Page tab2Page;
+        readonly Page tab3Page;
+        readonly Page tab4Page;
         public MainView()
         {
             NavigationPage.SetHasNavigationBar(this, false);
@@ -31,8 +35,17 @@ namespace OrderFoodAppUI.Views
             this.Children.Add(new HomeView(user) { IconImageSource = "home" }); //pass
             this.Children.Add(new SearchView(user) { IconImageSource = "search" }); //pass
             this.Children.Add(new ProductView(user) { IconImageSource = "list" });
-            this.Children.Add(new PersonalView(user) { IconImageSource = "user" });       
+            this.Children.Add(new PersonalView(user) { IconImageSource = "user" });
+
+            tab1Page= new HomeView(user) { IconImageSource = "home" };
+            tab2Page= new SearchView(user) { IconImageSource = "search" };
+            tab3Page=new ProductView(user) { IconImageSource = "list" };
+            tab4Page= new PersonalView(user) { IconImageSource = "user" };
             //this.Children.Add(new HistoryView(user) { IconImageSource = "history"});
+        }
+        protected override bool OnBackButtonPressed()
+        {
+            return false;
         }
 
     }

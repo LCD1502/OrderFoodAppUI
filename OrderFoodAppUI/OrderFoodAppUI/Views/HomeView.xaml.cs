@@ -35,6 +35,7 @@ namespace OrderFoodAppUI.Views
 
 
         }
+
         List<Restaurant> restaurants = new List<Restaurant>();
         async void InfoInit(User user)
         {

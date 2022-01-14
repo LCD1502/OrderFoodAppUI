@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             BackgroundColor="{StaticResource BgColor}"
+             BackgroundColor="{StaticResource MainColor}"
              xmlns:controls="clr-namespace:OrderFoodAppUI.Controls"
              x:Class="OrderFoodAppUI.Views.LoginView">
     <ContentPage.Content>
@@ -34,21 +34,21 @@
                 <Label Style="{StaticResource LabelTitleStyle}" Grid.Column="1" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" Text="Shopping Cart"/>
                 <Image Source="cart.png" Grid.Column="2" Aspect="AspectFit" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Start"/>-->
             </Grid>
-            <Image Source="logo.png"  Margin="20,20,20,0" Aspect="AspectFit" WidthRequest="160" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Center"/>
-                <Label Text="FOODAPP" HorizontalOptions="Center" FontSize="25" Grid.Row="1"></Label>
+            <Image Source="logo.png"  Margin="20,20,20,0" Aspect="AspectFit" WidthRequest="150" Grid.Row="0" VerticalOptions="Start" HorizontalOptions="Center"/>
+                <Label Text="FOODAPP" HorizontalOptions="Center" FontSize="30" Grid.Row="1" TextColor="White"></Label>
             <Frame HasShadow="True" Grid.Row="2" IsClippedToBounds="True" Margin="20,10,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                 <controls:CustomEntry x:Name="Username" Placeholder="Account/ Email" BorderColor="White" BackgroundColor="White" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="mail" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="3" IsClippedToBounds="True" Margin="20,10,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
                 <controls:CustomEntry x:Name="Pass" Placeholder="Password" BorderColor="White" BackgroundColor="White" IsPassword="True" FontFamily="{StaticResource Avo}" FontSize="15" TextColor="{StaticResource TextColor}" HeightRequest="60" Image="lock" ImageAlignment="Left" ImageWidth="15" ImageHeight="15" CornerRadius="30" IsCurvedCornersEnabled="True"/>
             </Frame>
-            <Frame HasShadow="True" Grid.Row="4" IsClippedToBounds="True" Margin="20,40,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <Button x:Name="CmdLogin" Text="Login" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White" BackgroundColor="{StaticResource MainColor}" Clicked="CmdLogin_Clicked"/>
+            <Frame HasShadow="True" Grid.Row="4" IsClippedToBounds="True" Margin="20,40,20,0" HeightRequest="60" CornerRadius="30" Padding="0" BorderColor="white">
+                    <Button x:Name="CmdLogin" Text="Login" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White" BackgroundColor="{StaticResource AccentColor}" Clicked="CmdLogin_Clicked"/>
             </Frame>
             <Frame HasShadow="True" Grid.Row="5" IsClippedToBounds="True" Margin="20,10,20,0" HeightRequest="60" CornerRadius="30" Padding="0">
-                <Button x:Name="CmdRegister" Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="White"  BackgroundColor="{StaticResource AccentColor}" Clicked="CmdRegister_Clicked"/>
+                <Button x:Name="CmdRegister" Text="Register" FontFamily="{StaticResource Avo}" FontSize="18" TextColor="{StaticResource MainColor}"  BackgroundColor="White" Clicked="CmdRegister_Clicked"/>
             </Frame>
-            <Label Style="{StaticResource LabelTitleStyle}" Grid.Row="6" VerticalTextAlignment="Center" TextColor="Gray" HorizontalTextAlignment="Center" Text="Forgot your password!" Margin="0,10,0,20" FontSize="17"/>
+            <Label Style="{StaticResource LabelTitleStyle}" Grid.Row="6" VerticalTextAlignment="Center" TextColor="White" HorizontalTextAlignment="Center" Text="Forgot your password!" Margin="0,10,0,20" FontSize="17"/>
         </Grid>
             </ScrollView>
     </ContentPage.Content>

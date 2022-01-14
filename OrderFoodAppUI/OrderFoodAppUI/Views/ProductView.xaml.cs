@@ -48,8 +48,8 @@ namespace OrderFoodAppUI.Views
                 {
                     tien = tien + x.TONGGIA;
                 }
-                Money.Text = tien.ToString();
-                TongTien = tien + 20000;
+                //Money.Text = tien.ToString();
+                TongTien = tien;
                 LbTongTien.Text = TongTien.ToString();
                 LstCart.HeightRequest = (100 * carts.Count);
                 LstCart.ItemsSource = carts;

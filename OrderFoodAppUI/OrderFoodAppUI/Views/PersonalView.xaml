@@ -68,6 +68,7 @@
                         <Label Text="Cài đặt" Style="{StaticResource LabelTitleStyle}"></Label>
                     </StackLayout>
                 </Frame>
+                <Button Clicked="Button_Clicked"></Button>
                 <Button x:Name="BtnLogout"  Text="Đăng xuất"  Clicked="BtnLogout_Clicked" 
                         BackgroundColor="Red" TextColor="White" 
                         Style="{StaticResource LabelTitleStyle}" CornerRadius="20" HorizontalOptions="Center"

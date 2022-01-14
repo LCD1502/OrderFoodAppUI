@@ -62,8 +62,11 @@ namespace OrderFoodAppUI.Views
         }
         async void BillInit(List<Cart> cart, User user)
         {
+            LstBill.HeightRequest = (50 * carts.Count);
+            LstBill.ItemsSource = cart;
             //khoi tao cho UI
-            USname.Text = user.HOTEN;
+            USname.Text ="Người nhận: " + user.HOTEN;
+            USname.Text ="SĐT: " + user.SDT;
             Time.Text = DateTime.Now.ToString();
 
             //Tinh tong gia tien
@@ -100,7 +103,7 @@ namespace OrderFoodAppUI.Views
             var District = placemark.SubAdminArea;
             var SubAdd1 = placemark.FeatureName;
             var SubAdd2 = placemark.Thoroughfare;
-                var tempaddress ="Địa chỉ: " + SubAdd2 + ", " + SubAdd1 + ", " + District + ", " + Provine;       
+                var tempaddress =SubAdd2 + ", " + SubAdd1 + ", " + District + ", " + Provine;       
             MyLocation.Text = tempaddress;
 
             //location2.Latitude = 13.05157847078659;

@@ -27,36 +27,123 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
-            <Frame Grid.Row="0" Margin="30,90,30,0" HeightRequest="100" >
-                <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center">
-                    <Label x:Name="USname" Grid.Row="0" Text="User" Style="{StaticResource MainAmount}" Margin="0,20,0,0" FontSize="18"/>
-                    <Label x:Name="Time" Grid.Row="1" Text="September 24, 7:32pm" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
-                    <Line  Grid.Row="2" Style="{StaticResource DivisionLine}" />
+        <ScrollView>
+            <StackLayout>
+                <Label Text="Hóa đơn" VerticalOptions="Center" HorizontalOptions="Center" Style="{StaticResource LabelWellcomeStyle}" Margin="0,20,0,0" FontSize="25"/>
+                <Label x:Name="Time"  Text="September 24, 7:32pm" HorizontalOptions="Center" VerticalOptions="Center" Style="{StaticResource LabelDefaultStyle}"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="10,0,10,0" Text="Món ăn" FontAttributes="Bold" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Style="{StaticResource LabelDefaultStyle}"></Label>
+                    <Label Text="SL" Grid.Column="1" Grid.Row="0" FontAttributes="Bold" VerticalOptions="Center" Style="{StaticResource LabelDefaultStyle}"></Label>
+                    <Label Text="Giá" Grid.Column="2" Grid.Row="0" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"></Label>
                 </Grid>
-            </Frame>
-            <Image Grid.Row="0" Source="user.jpg" HorizontalOptions="Center" TranslationY="-35" HeightRequest="90" WidthRequest="90"/>
-            <Frame Grid.Row="1" Margin="30,-15,30,0" HeightRequest="292">
-                <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
-                    <Label Grid.Row="2" Grid.Column="0" Text="Tiền hàng" FontSize="20" TextColor="#4f4f4f" FontAttributes="Bold" Margin="0,0,0,10"/>
-                    <Label Grid.Row="3" Grid.Column="0" Text="Phí ship" FontSize="22" TextColor="#4f4f4f" FontAttributes="Bold"/>
-                    <Label x:Name="Money" Grid.Row="2" Grid.Column="1" Text="200.000"  FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
-                    <Label x:Name="Ship" Grid.Row="3" Grid.Column="1" Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End"/>
-                    <Line  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,30"
-                    Style="{StaticResource DivisionLine}" />
-                    <Label Grid.Row="5" Grid.Column="0" Text="Tổng tiền" FontSize="24" TextColor="#4f4f4f" FontAttributes="Bold"/>
-                    <Label x:Name="Total" Grid.Row="5" Grid.Column="1" Text="250.000"  FontSize="24" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
+                <ListView x:Name="LstBill">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.7*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label Text="{Binding TEN}" Margin="10,0,0,0" Grid.Column="0" Grid.Row="0" VerticalOptions="Center" Style="{StaticResource LabelDefaultStyle}"></Label>
+                                    <Label Text="{Binding SOLUONG}" Grid.Column="1" Grid.Row="0" VerticalOptions="Center" Style="{StaticResource LabelDefaultStyle}"></Label>
+                                    <Label Text="{Binding TONGGIA}" Grid.Column="2" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"></Label>
+                                    <Label Text="VNĐ" Margin="0,0,5,0" Grid.Column="3" Grid.Row="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"></Label>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="10,0,10,0"  Text="Tiền hàng:" Grid.Column="0" Grid.Row="0" FontSize="20" TextColor="#4f4f4f" FontAttributes="Bold" Style="{StaticResource LabelDefaultStyle}"/>
+                    <Label x:Name="Money"  Text="200.000"  Grid.Column="1" Grid.Row="0" FontSize="20" FontAttributes="Bold" Margin="10,0,10,0" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+                </Grid>
+                <Label Margin="10,0,10,0"  Text="Phí ship:" FontSize="22" TextColor="#4f4f4f" FontAttributes="Bold" Style="{StaticResource LabelDefaultStyle}"/>
 
-                    <Line  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15" 
-                    Style="{StaticResource DivisionLine}" />
-                    <Label x:Name="MyLocation" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
-                    <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="Xác nhận đặt hàng" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
+                <Label x:Name="Ship"  Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+
+                <BoxView BackgroundColor="Gray" HeightRequest="1" Margin="10,0,10,0"></BoxView>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="*"></ColumnDefinition>
+                        <ColumnDefinition Width="0.4*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Label  Text="Tổng tiền:" Margin="10,0,10,0" Grid.Column="0" Grid.Row="0" FontSize="24" TextColor="#4f4f4f" FontAttributes="Bold" Style="{StaticResource LabelDefaultStyle}"/>
+                    <Label x:Name="Total" Grid.Column="1" Grid.Row="0" Text="250.000"  FontSize="24" FontAttributes="Bold" Margin="0,0,10,10" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+                    <Label Grid.Column="2" Grid.Row="0" Text="VNĐ"  VerticalOptions="Center" FontSize="20" FontAttributes="Bold" Margin="0,0,10,10" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
                 </Grid>
-            </Frame>
-            <Grid Grid.Row="2" ColumnDefinitions="*,*" >
-                <Button x:Name="BtnLater" Clicked="BtnLater_Clicked" Grid.Column="0"  ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
-                <Button x:Name="BtnOrder" Clicked="BtnOrder_Clicked" Grid.Column="1" Text="Đặt hàng" TextColor="White" FontAttributes="Bold" BackgroundColor="{StaticResource MainColor}" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
-            </Grid>
-        </Grid>
+                <BoxView BackgroundColor="Gray" HeightRequest="1" Margin="10,0,10,0"></BoxView>
+                <Label x:Name="USname" Text="User" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource LabelDefaultStyle}" Margin="10,0,0,0" FontSize="18"/>
+                <Label x:Name="USSDT" Text="User" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource LabelDefaultStyle}" Margin="10,0,0,0" FontSize="18"/>
+                <Label Text="Địa chỉ:" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource LabelDefaultStyle}" Margin="10,0,0,0" FontSize="18"/>
+                <Entry x:Name="MyLocation"  FontAttributes="Bold" FontSize="16" Style="{StaticResource LabelDefaultStyle}" Margin="8,0,8,0" ></Entry>
+                <Grid Grid.Row="1" ColumnDefinitions="*,*" >
+                    <Button x:Name="BtnLater" Clicked="BtnLater_Clicked" Grid.Column="0" Style="{StaticResource LabelDefaultStyle}" ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
+                    <Button x:Name="BtnOrder" Clicked="BtnOrder_Clicked" Grid.Column="1" Text="Đặt hàng" Style="{StaticResource LabelDefaultStyle}" TextColor="White" FontAttributes="Bold" BackgroundColor="{StaticResource MainColor}" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
+                </Grid>
+
+                <!--<Grid RowSpacing="0" RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+                    <Frame Grid.Row="0" Margin="30,90,30,0" HeightRequest="100" >
+                        <Grid RowDefinitions="Auto,Auto,Auto" HorizontalOptions="Center">
+                            <Label x:Name="USname" Grid.Row="0" Text="User" Style="{StaticResource MainAmount}" Margin="0,20,0,0" FontSize="18"/>
+                            <Label x:Name="Time" Grid.Row="1" Text="September 24, 7:32pm" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
+                            <Line  Grid.Row="2" Style="{StaticResource DivisionLine}" />
+                        </Grid>
+                    </Frame>
+                    <Image Grid.Row="0" Source="user.jpg" HorizontalOptions="Center" TranslationY="-35" HeightRequest="90" WidthRequest="90"/>
+                    <Frame Grid.Row="1" Margin="30,-15,30,0" HeightRequest="292">
+                        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="*,*">
+                            <Label Grid.Row="2" Grid.Column="0" Text="Tiền hàng" FontSize="20" TextColor="#4f4f4f" FontAttributes="Bold" Margin="0,0,0,10"/>
+                            <Label Grid.Row="3" Grid.Column="0" Text="Phí ship" FontSize="22" TextColor="#4f4f4f" FontAttributes="Bold"/>
+                            <Label x:Name="Money" Grid.Row="2" Grid.Column="1" Text="200.000"  FontSize="20" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
+                            <Label x:Name="Ship" Grid.Row="3" Grid.Column="1" Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End"/>
+                            <Line  Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,30"
+                    Style="{StaticResource DivisionLine}" />
+                            <Label Grid.Row="5" Grid.Column="0" Text="Tổng tiền" FontSize="24" TextColor="#4f4f4f" FontAttributes="Bold"/>
+                            <Label x:Name="Total" Grid.Row="5" Grid.Column="1" Text="250.000"  FontSize="24" FontAttributes="Bold" Margin="0,0,0,10" HorizontalOptions="End"/>
+
+                            <Line  Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,0,15" 
+                    Style="{StaticResource DivisionLine}" />
+                            <Label x:Name="MyLocation" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"  Text="App Food" FontAttributes="Bold" FontSize="16" HorizontalOptions="Center"/>
+                            <Label Grid.Row="8" Grid.Column="0" Grid.ColumnSpan="2"  Text="Xác nhận đặt hàng" HorizontalOptions="Center" Style="{StaticResource SecundaryText}"/>
+                        </Grid>
+                    </Frame>
+                    <Grid Grid.Row="2" ColumnDefinitions="*,*" >
+                        <Button x:Name="BtnLater" Clicked="BtnLater_Clicked" Grid.Column="0"  ImageSource="Arrow" Text="Đặt hàng sau" TextColor="Black" FontAttributes="Bold" BackgroundColor="#e4e4e4" CornerRadius="10" HeightRequest="50" Margin="10,5,10,20"/>
+                        <Button x:Name="BtnOrder" Clicked="BtnOrder_Clicked" Grid.Column="1" Text="Đặt hàng" TextColor="White" FontAttributes="Bold" BackgroundColor="{StaticResource MainColor}" CornerRadius="10" Margin="5,5,10,20" HeightRequest="50"/>
+                    </Grid>
+                </Grid>-->
+
+            </StackLayout>
+        </ScrollView>
+        
+        
+        
+        
     </ContentPage.Content>
 </ContentPage>

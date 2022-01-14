@@ -18,7 +18,7 @@
                                       HeightRequest="60" Image="user_circle" ImageAlignment="Left" 
                                       ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
                                       IsCurvedCornersEnabled="True"/>
-            <Label Text="Password" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+            <Label Text="Mật khẩu" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
             <controls:CustomEntry x:Name="password"
                                   IsPassword="True"
                                       Placeholder="Password" 
@@ -28,7 +28,17 @@
                                       HeightRequest="60" Image="user_circle" ImageAlignment="Left" 
                                       ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
                                       IsCurvedCornersEnabled="True"/>
-            <Label Text="Họ và tên" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <Label Text="Nhập lại mật khẩu" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
+                <controls:CustomEntry x:Name="password2"
+                                  IsPassword="True"
+                                      Placeholder="Password" 
+                                      BorderColor="White" 
+                                      BackgroundColor="White" FontFamily="{StaticResource Avo}" 
+                                      FontSize="15" TextColor="{StaticResource TextColor}" 
+                                      HeightRequest="60" Image="user_circle" ImageAlignment="Left" 
+                                      ImageWidth="15" ImageHeight="15" CornerRadius="30" Margin="10,0,10,0" 
+                                      IsCurvedCornersEnabled="True"/>
+                <Label Text="Họ và tên" Style="{StaticResource LabelTitleStyle}" FontSize="17" Margin="20,10,0,0"></Label>
             <controls:CustomEntry x:Name="name" 
                                       Placeholder="Họ và tên" 
                                       BorderColor="White" 

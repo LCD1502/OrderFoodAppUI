@@ -66,12 +66,17 @@ namespace OrderFoodAppUI.Views
         }
         private void BtnLogout_Clicked(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
+           App.Current.MainPage.Navigation.PushAsync(new LoginView(), true);
         }
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
             App.Current.MainPage.Navigation.PushAsync(new PersonalUpdateView(PersonalUser), true);
+        }
+
+        private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new HistoryView(PersonalUser), true);
         }
     }
 }

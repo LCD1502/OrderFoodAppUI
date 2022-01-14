@@ -11,7 +11,7 @@
             <StackLayout>
                 <Label Text="Giỏ hàng" Style="{StaticResource LabelTitleStyle}" VerticalOptions="Center" HorizontalOptions="Center" Margin="10"></Label>
                 <Button x:Name="BtnRefresh" Text="Làm mới giỏ hàng" Clicked="BtnRefresh_Clicked" BackgroundColor="{StaticResource MainColor}" TextColor="White"></Button>
-                <ListView x:Name="LstCart" HasUnevenRows="True">
+                <ListView x:Name="LstCart" HasUnevenRows="True" VerticalOptions="FillAndExpand" >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>

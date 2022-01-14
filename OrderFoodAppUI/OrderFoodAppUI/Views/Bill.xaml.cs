@@ -100,7 +100,7 @@ namespace OrderFoodAppUI.Views
             var District = placemark.SubAdminArea;
             var SubAdd1 = placemark.FeatureName;
             var SubAdd2 = placemark.Thoroughfare;
-                var tempaddress = SubAdd2 + ", " + SubAdd1 + ", " + District + ", " + Provine;       
+                var tempaddress ="Địa chỉ: " + SubAdd2 + ", " + SubAdd1 + ", " + District + ", " + Provine;       
             MyLocation.Text = tempaddress;
 
             //location2.Latitude = 13.05157847078659;

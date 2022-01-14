@@ -57,7 +57,26 @@ namespace OrderFoodAppUI.Views
 
         private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
         {
-            App.Current.MainPage.Navigation.PushAsync(new ProducDetail(), true);
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(restaurants[0], HomeUser), true);
+        }
+        private void TapGestureRecognizer_Tapped2(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(restaurants[1], HomeUser), true);
+        }
+
+        private void TapGestureRecognizer_Tapped3(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(restaurants[2], HomeUser), true);
+        }
+
+        private void TapGestureRecognizer_Tapped4(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(restaurants[3], HomeUser), true);
+        }
+
+        private void TapGestureRecognizer_Tapped5(object sender, EventArgs e)
+        {
+            App.Current.MainPage.Navigation.PushAsync(new RestaurantDetail(restaurants[4], HomeUser), true);
         }
 
         private void TapGestureRecognizer_Tapped_1(object sender, EventArgs e)

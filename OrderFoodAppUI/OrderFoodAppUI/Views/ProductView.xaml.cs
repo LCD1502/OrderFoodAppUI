@@ -31,10 +31,7 @@ namespace OrderFoodAppUI.Views
             ListCartInit(ProUser);
             OnAppearing();
         }
-        protected virtual void OnAppearing()
-        {
-            ListCartInit(ProUser);
-        }
+
         List<Cart> carts = new List<Cart>();
 
         async void ListCartInit( User user)
@@ -54,7 +51,8 @@ namespace OrderFoodAppUI.Views
                 Money.Text = tien.ToString();
                 TongTien = tien + 20000;
                 LbTongTien.Text = TongTien.ToString();
-                LstCart.ItemsSource = CartListCV;
+                LstCart.HeightRequest = (100 * carts.Count);
+                LstCart.ItemsSource = carts;
             }    
         }
 

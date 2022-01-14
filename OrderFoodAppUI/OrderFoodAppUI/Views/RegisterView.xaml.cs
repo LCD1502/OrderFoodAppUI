@@ -21,6 +21,11 @@ namespace OrderFoodAppUI.Views
         
         private async void cmdDangkybtn_Clicked(object sender, EventArgs e)
         {
+            if(password.Text!=password2.Text)
+            {
+                await DisplayAlert("Thông báo", "Tạo người dùng thất bại! Mật khẩu nhập lại không đúng", "OK");
+                return;
+            }    
             User newUser = new User();
             string Usrname = username.Text;
             string Pass = password.Text;

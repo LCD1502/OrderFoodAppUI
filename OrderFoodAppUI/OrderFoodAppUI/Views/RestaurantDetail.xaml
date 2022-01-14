@@ -7,10 +7,11 @@
         <StackLayout>
                 <Frame BackgroundColor="{StaticResource MainColor}">
                     <StackLayout>
-                        <Frame Padding="0" CornerRadius="170" HeightRequest="300" BorderColor="White" Margin="10,0,10,0" 
+                        <Frame Padding="0" CornerRadius="170" HeightRequest="300" WidthRequest="300" BorderColor="White" Margin="10,0,10,0" 
                                HorizontalOptions="Center" VerticalOptions="Center" IsClippedToBounds="True">
                         <Image x:Name="ResImg" Source="https://thecodehotel.vn/wp-content/uploads/2019/03/Restaurant-1.jpg" Aspect="AspectFill"></Image>
                         </Frame>
+                        
                         <Label x:Name="ResName" Text="NHà hàng a" Style="{StaticResource LabelTitleStyle}" TextColor="White" 
                                HorizontalTextAlignment="Center"></Label>
                         <Label x:Name="ResPlace" Text="aa" 
@@ -20,8 +21,8 @@
                         <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
                         <Image Margin="0,3,3,3" Source="place_dark.png" WidthRequest="15" HeightRequest="15" Aspect="AspectFit" HorizontalOptions="Start"/>
                             <Label Margin="0,3,3,3" Text="2.5Km" Style="{StaticResource LabelDefaultStyle}" HorizontalOptions="Start" TextColor="White"/>
-                        <Image Margin="10,3,3,3" Source="imoji.png" WidthRequest="15" HeightRequest="15" Aspect="AspectFit" HorizontalOptions="Center"/>
-                            <Label  Margin="0,3,3,3" Text="4.9" Style="{StaticResource LabelDefaultStyle}" HorizontalOptions="Start" TextColor="White"/>
+                        <Image Margin="10,3,3,3" Source="star" WidthRequest="15" HeightRequest="15" Aspect="AspectFit" HorizontalOptions="Center"/>
+                            <Label  Margin="0,3,3,3" Text="4.3" Style="{StaticResource LabelDefaultStyle}" HorizontalOptions="Start" TextColor="White"/>
                         </StackLayout>
                     </StackLayout>
                 </Frame>
@@ -47,12 +48,12 @@
                                                 <Image Source="{Binding IMG}" Aspect="AspectFill" />
                                             </Frame>
 
-                                            <Label Margin="5,0,5,0" Text="{Binding TEN}" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0"  VerticalOptions="Center"/>
+                                            <Label Margin="5,0,5,0" Text="{Binding TEN}" Style="{StaticResource LabelTitleStyle}" Grid.Column="1" Grid.Row="0"  FontSize="18" VerticalOptions="Center"/>
                                             <!--<Label Margin="5,0,5,0" Text="{Binding DIADIEM}" Style="{StaticResource LabelTitleStyle}" FontSize="11" TextColor="Gray" Grid.Column="1" Grid.Row="1"/>-->
                                             <!--<BoxView HorizontalOptions="FillAndExpand" HeightRequest="2" BackgroundColor="{StaticResource BgColor}"/>-->
                                             <StackLayout Margin="5,0,5,0" Orientation="Horizontal" Grid.Column="1" Grid.Row="1">
                                                 <Label Text="{Binding GIA}" VerticalTextAlignment="Center" Style="{StaticResource LabelTitleStyle}" HorizontalOptions="Start"/>
-                                                <Label Text="" VerticalOptions="Center" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="StartAndExpand"/>
+                                                <Label Text="VNĐ" VerticalOptions="Center" Style="{StaticResource LabelWellcomeStyle}" HorizontalOptions="StartAndExpand" FontSize="18"/>
                                                 <ImageButton x:Name="BtnPlus" Clicked="BtnPlus_Clicked"  Source="plus" WidthRequest="50" HeightRequest="50" HorizontalOptions="End" BackgroundColor="White" CornerRadius="40" Margin="5,5,5,5" CommandParameter="{Binding MAMA}"/>
                                             </StackLayout>
                                         </Grid>

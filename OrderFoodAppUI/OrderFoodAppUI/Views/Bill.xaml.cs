@@ -60,14 +60,28 @@ namespace OrderFoodAppUI.Views
             distance = Math.Round(distance, 1);
             return distance;
         }
+        float Ship;
         async void BillInit(List<Cart> cart, User user)
         {
             LstBill.HeightRequest = (50 * carts.Count);
             LstBill.ItemsSource = cart;
+
             //khoi tao cho UI
             USname.Text ="Người nhận: " + user.HOTEN;
-            USname.Text ="SĐT: " + user.SDT;
+            USSDT.Text ="SĐT: " + user.SDT;
             Time.Text = DateTime.Now.ToString();
+
+            List<String> nhahang2=new List<String>() { };
+            foreach(Cart x in carts)
+            {
+                bool alreadyExist = nhahang2.Contains(x.TENNH);
+                if (!alreadyExist)
+                {
+                    nhahang2.Add(x.TENNH);
+                } 
+            }
+            LstRes.ItemsSource = nhahang2;
+            LstRes.HeightRequest = (50 * nhahang2.Count);
 
             //Tinh tong gia tien
             float tien=0;
@@ -76,8 +90,8 @@ namespace OrderFoodAppUI.Views
                 tien = tien + x.TONGGIA;
             }
             Money.Text =tien.ToString();
-            Ship.Text = "20000";
-            Total.Text = (tien + 20000).ToString();
+            Ship = 20000*(nhahang2.Count);
+            Total.Text = (tien + Ship).ToString();
 
             //lay vitri hien tai
             var location = await Geolocation.GetLastKnownLocationAsync();
@@ -132,7 +146,7 @@ namespace OrderFoodAppUI.Views
             tggiao = tggiao.Replace("CH", "PM");
 
             //goi api them vao hoa don
-            var MAHD = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertHoaDon?mand="+BillUser.MAND.ToString()+"&tongtien="+ Total.Text + "&tgdat="+tgdat+"&tggiao="+tggiao+"&ship="+Ship.Text);
+            var MAHD = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertHoaDon?mand="+BillUser.MAND.ToString()+"&tongtien="+ Total.Text + "&tgdat="+tgdat+"&tggiao="+tggiao+"&ship="+Ship.ToString());
             MAHD = MAHD.Replace("[{\"MAHD\":", string.Empty); //xu li ma hoa don nhan ve
             MAHD = MAHD.Replace(".0}]", string.Empty);
             

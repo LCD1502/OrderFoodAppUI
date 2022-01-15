@@ -42,6 +42,7 @@ namespace OrderFoodAppUI.Views
                 var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=" + user.MAND.ToString());
                 var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
                 carts = CartListCV;
+               // carts.Sort((x, y) => x.TENNH.CompareTo(y.TENNH));
                 float tien = 0;
                 float TongTien;
                 foreach (Cart x in carts)

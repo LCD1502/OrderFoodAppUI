@@ -81,7 +81,28 @@
                 </Grid>
                 <Label Margin="10,0,10,0"  Text="Phí ship:" FontSize="22" TextColor="#4f4f4f" FontAttributes="Bold" Style="{StaticResource LabelDefaultStyle}"/>
 
-                <Label x:Name="Ship"  Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+                <!--<Label x:Name="Ship"  Text="50.0000"  FontSize="22" FontAttributes="Bold" TextColor="#2880e5" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>-->
+                <ListView x:Name="LstRes">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="3*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                        <ColumnDefinition Width="0.56*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Label  x:Name="ResName" Text="{Binding}" Margin="10,0,0,0" VerticalOptions="Center" Grid.Column="0" Grid.Row="0" FontSize="15" TextColor="#4f4f4f" FontAttributes="Bold" Style="{StaticResource LabelDefaultStyle}"/>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="20000" VerticalOptions="Center" FontSize="15" FontAttributes="Bold" Margin="0,0,10,0" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+                                    <Label Grid.Column="2" Grid.Row="0" Text="VNĐ"  VerticalOptions="Center" FontSize="15" FontAttributes="Bold" Margin="0,0,10,0" HorizontalOptions="End" Style="{StaticResource LabelDefaultStyle}"/>
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
 
                 <BoxView BackgroundColor="Gray" HeightRequest="1" Margin="10,0,10,0"></BoxView>
                 <Grid>

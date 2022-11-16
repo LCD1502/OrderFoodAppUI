@@ -39,7 +39,7 @@ namespace OrderFoodAppUI.Views
             if(user!=null)
             {
                 HttpClient httpClient = new HttpClient();
-                var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetGioHang?mand=" + user.MAND.ToString());
+                var CartList = await httpClient.GetStringAsync("http://172.30.8.50/AppFoodApi//api/CartController/GetCartFood?mand=" + user.MAND.ToString());
                 var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
                 carts = CartListCV;
                // carts.Sort((x, y) => x.TENNH.CompareTo(y.TENNH));
@@ -101,10 +101,28 @@ namespace OrderFoodAppUI.Views
                 {
                     if(x.MAGH == MAGH)
                     {
-                        HttpClient httpClient = new HttpClient();
-                        await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand=" + ProUser.MAND.ToString()+"&mama=" +x.MAMA.ToString());
+                        //HttpClient httpClient = new HttpClient();
+                        //await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand=" + ProUser.MAND.ToString()+"&mama=" +x.MAMA.ToString());
+                        //break;
+
+                        User_Food user_food = new User_Food { MAND = ProUser.MAND, MAMA = x.MAMA };
+                        HttpClient http = new HttpClient();
+                        string jsonUserFood = JsonConvert.SerializeObject(user_food);
+                        StringContent httpContent = new StringContent(jsonUserFood, Encoding.UTF8, "application/json");
+                        HttpResponseMessage result = await http.PostAsync("http://172.30.8.50/AppFoodApi/api/CartController/InsertGioHang", httpContent);
+                        var code = await result.Content.ReadAsStringAsync();
+
+                        if (Int32.Parse(code) > 0)
+                        {
+                            //await DisplayAlert("Thông báo", "Thêm món ăn vào giỏ hàng thành công", "OK");
+                            ListCartInit(ProUser);
+                        }
+                        else
+                        {
+                            await DisplayAlert("Thông báo", "Có lỗi xảy ra, thêm món ăn KHÔNG thành công", "OK");
+                        }
                         break;
-                   }      
+                    }      
                 }    
             }
             else {
@@ -114,8 +132,29 @@ namespace OrderFoodAppUI.Views
                    {
                         if (x.SOLUONG > 0)
                         {
-                            HttpClient httpClient = new HttpClient();
-                            await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh=" + MAGH.ToString());
+                            //HttpClient httpClient = new HttpClient();
+                            //await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/DeleteGioHang?magh=" + MAGH.ToString());
+
+                            User_Food user_food = new User_Food { MAND = ProUser.MAND, MAMA = x.MAMA };
+                            HttpClient http = new HttpClient();
+                            string jsonUserFood = JsonConvert.SerializeObject(user_food);
+                            StringContent httpContent = new StringContent(jsonUserFood, Encoding.UTF8, "application/json");
+                            HttpResponseMessage result = await http.PostAsync("http://172.30.8.50/AppFoodApi/api/CartController/DeleteGioHang", httpContent);
+                            var code = await result.Content.ReadAsStringAsync();
+                            if (Int32.Parse(code) > 0)
+                            {
+                                //await DisplayAlert("Thông báo", "Thêm món ăn vào giỏ hàng thành công", "OK");
+                                ListCartInit(ProUser);
+                            }
+                            else if (Int32.Parse(code) == 0 )
+                            {
+                                await DisplayAlert("Thông báo", "Xóa sản phẩm thành công", "OK");
+                                ListCartInit(ProUser);
+                            }
+                            else
+                            {
+                                await DisplayAlert("Thông báo", "Có lỗi xảy ra", "OK");
+                            }
                             break;
                         }    
                             

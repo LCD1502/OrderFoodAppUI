@@ -34,7 +34,7 @@ namespace OrderFoodAppUI.Views
             ResPlace.Text = restaurant.DIADIEM;
             string maNH = restaurant.MANH;
             HttpClient httpClient = new HttpClient();
-            var FoodList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetMonAnNhaHang?manh="+ maNH);
+            var FoodList = await httpClient.GetStringAsync("http://172.30.8.50/AppFoodApi/api/FoodController/GetMonAnNhaHang?manh=" + maNH);
             var FoodListCV = JsonConvert.DeserializeObject<List<Food>>(FoodList);
             FoodLst.ItemsSource = FoodListCV;
             //restaurants = RestListCV;
@@ -45,10 +45,27 @@ namespace OrderFoodAppUI.Views
         {
             ImageButton button = (ImageButton)sender;
             int MAMA = int.Parse(button.CommandParameter.ToString());
-            HttpClient httpClient = new HttpClient();
-            var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand="+RestaurantUser.MAND.ToString()+"&mama="+MAMA.ToString());
-            //var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+            //HttpClient httpClient = new HttpClient();
+            //var CartList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/InsertGioHang?mand="+RestaurantUser.MAND.ToString()+"&mama="+MAMA.ToString());
+            ////var CartListCV = JsonConvert.DeserializeObject<List<Cart>>(CartList);
+
+            //User enteredUser = new User { USERNAME = Username.Text, PASS = Pass.Text };
+            User_Food user_food = new User_Food { MAND = RestaurantUser.MAND, MAMA = MAMA };
+            HttpClient http = new HttpClient();
+            string jsonUserFood = JsonConvert.SerializeObject(user_food);
+            StringContent httpContent = new StringContent(jsonUserFood, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = await http.PostAsync("http://172.30.8.50/AppFoodApi/api/CartController/InsertGioHang", httpContent);
+            var code = await result.Content.ReadAsStringAsync();
             
+            if (Int32.Parse(code) > 0)
+            {
+                await DisplayAlert("Thông báo", "Thêm món ăn vào giỏ hàng thành công", "OK");
+            }
+            else
+            {
+                await DisplayAlert("Thông báo", "Có lỗi xảy ra, thêm món ăn KHÔNG thành công", "OK");
+            }
+
         }
     }
 }

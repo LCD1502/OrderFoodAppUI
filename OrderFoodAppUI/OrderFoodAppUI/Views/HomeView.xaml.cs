@@ -40,7 +40,7 @@ namespace OrderFoodAppUI.Views
         async void InfoInit(User user)
         {
             HttpClient httpClient = new HttpClient();
-            var ResList = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/GetNhaHang");
+            var ResList = await httpClient.GetStringAsync("http://172.30.8.50/AppFoodApi/api/RestaurantController/GetNhaHang");
             var RestListCV = JsonConvert.DeserializeObject<List<Restaurant>>(ResList);
             restaurants = RestListCV;
             Hinh1.Source = restaurants[0].IMG;

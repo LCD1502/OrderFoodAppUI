@@ -28,26 +28,34 @@ namespace OrderFoodAppUI.Views
 
         private async void CmdLogin_Clicked(object sender, EventArgs e)
         {
+            User GlobalUser;
             string Usrname = Username.Text;
             string Pw = Pass.Text;
-            User GlobalUser;
 
-            //goi api so sanh nguoiw dung hop le   
-            HttpClient httpClient = new HttpClient();
-            var User = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/CheckOneUser?username=" + Usrname + "&pw=" + Pw);
-            User = User.Replace("[", string.Empty);
-            User = User.Replace("]", string.Empty); // chuyen array thanh object
+            ////goi api so sanh nguoiw dung hop le   
+            //var User = await httpClient.GetStringAsync("http://appfood.somee.com/api/AppFoodController/CheckOneUser?username=" + Usrname + "&pw=" + Pw);
+            //User = User.Replace("[", string.Empty);
+            //User = User.Replace("]", string.Empty); // chuyen array thanh object
+
+            User enteredUser = new User { USERNAME = Username.Text, PASS = Pass.Text };
+            HttpClient http = new HttpClient();
+            string jsonEnteredUser = JsonConvert.SerializeObject(enteredUser);
+            StringContent httpContent = new StringContent(jsonEnteredUser, Encoding.UTF8, "application/json");
+            HttpResponseMessage result = await http.PostAsync("http://172.30.8.50/AppFoodApi/api/UserController/CheckOneUser", httpContent);
+            var user = await result.Content.ReadAsStringAsync();
 
             //Kiem tra ket qua api
-            if (User=="")
+            if (user == "")
             {
                 await DisplayAlert("Thông báo", "Đăng nhập thất bại: \nKhông đúng mật khẩu hoặc username", "OK");
             }
             else //neu dung truyen bien user qua mainpage
             {
-                var UserCV = JsonConvert.DeserializeObject<User>(User);
-                GlobalUser = UserCV;        
-                //await DisplayAlert("Thông báo", "Đăng nhập thành công ", "OK");
+                user = user.Replace("[", string.Empty);
+                user = user.Replace("]", string.Empty); // chuyen array thanh object
+                var UserCV = JsonConvert.DeserializeObject<User>(user);
+                GlobalUser = UserCV;
+                await DisplayAlert("Thông báo", "Đăng nhập thành công ", "OK");
                 await App.Current.MainPage.Navigation.PushAsync(new MainView(GlobalUser), true);
             }
         }

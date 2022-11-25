@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace OrderFoodAppUI.Views
+namespace OrderFoodAppUI
 {
     public class Food
     {
@@ -12,6 +12,5 @@ namespace OrderFoodAppUI.Views
         public string MOTA { get; set; }
         public float GIA { get; set; }
         public int MANH { get; set; }
-
     }
 }

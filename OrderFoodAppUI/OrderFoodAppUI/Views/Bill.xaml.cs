@@ -157,7 +157,7 @@ namespace OrderFoodAppUI.Views
             }
 
             await DisplayAlert("Thông báo", "Đặt hàng thành công\nThời gian giao hàng dự kiến: " + time2.ToString() + "\nMã Hóa đơn: " + MAHD, "OK");
-            App.Current.MainPage.Navigation.PopAsync(true);
+            await App.Current.MainPage.Navigation.PopAsync(true);
         }
     }
 }
